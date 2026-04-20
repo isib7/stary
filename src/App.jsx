@@ -11,6 +11,7 @@ import StoryReader from './components/StoryReader.jsx';
 import EndingScreen from './components/EndingScreen.jsx';
 import NamingModal from './components/NamingModal.jsx';
 import InteractiveBackground from './components/InteractiveBackground.jsx';
+import ReportButton from './components/ReportButton.jsx';
 import './index.css';
 
 // Validate all stories in dev mode
@@ -122,6 +123,8 @@ export default function App() {
           onSelect={handleSelect}
         />
       )}
+
+      <ReportButton lang={lang} />
     </div>
   );
 }

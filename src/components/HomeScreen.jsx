@@ -1,4 +1,5 @@
 import React from 'react';
+import SuggestionBox from './SuggestionBox';
 
 const THEME_ICONS = {
   horror: '🕯',
@@ -79,20 +80,24 @@ export default function HomeScreen({ stories, lang, t, onSelect }) {
           ))}
         </div>
 
-        {/* Contact Us */}
-        <section className="home__contact" style={{ marginTop: '80px', textAlign: 'center', padding: '40px 20px', background: 'var(--surface)', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border)' }}>
-          <h2 style={{ fontSize: '1.4rem', marginBottom: '24px', color: 'var(--text-secondary)', fontFamily: 'var(--font-display)', fontWeight: '700' }}>
-            {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: 'var(--text-primary)', fontSize: '1.15rem' }}>
-            <a href="mailto:isma3il97ibrahim53@gmail.com" style={{ color: 'var(--accent-light)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', padding: '12px 24px', borderRadius: '99px' }}>
-              <span>✉️</span> isma3il97ibrahim53@gmail.com
-            </a>
-            <a href="tel:+923480908929" style={{ color: 'var(--accent-light)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', padding: '12px 24px', borderRadius: '99px', direction: 'ltr' }}>
-              <span>📞</span> +92 348 0908 929
-            </a>
-          </div>
-        </section>
+        {/* Contact Us & Feedback */}
+        <div className="home__bottom-section" style={{ marginTop: '80px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          <section className="home__contact" style={{ textAlign: 'center', padding: '40px 20px', background: 'var(--surface)', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border)' }}>
+            <h2 style={{ fontSize: '1.4rem', marginBottom: '24px', color: 'var(--text-secondary)', fontFamily: 'var(--font-display)', fontWeight: '700' }}>
+              {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: 'var(--text-primary)', fontSize: '1.15rem' }}>
+              <a href="mailto:isma3il97ibrahim53@gmail.com" style={{ color: 'var(--accent-light)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', padding: '12px 24px', borderRadius: '99px' }}>
+                <span>✉️</span> isma3il97ibrahim53@gmail.com
+              </a>
+              <a href="tel:+923480908929" style={{ color: 'var(--accent-light)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', padding: '12px 24px', borderRadius: '99px', direction: 'ltr' }}>
+                <span>📞</span> +92 348 0908 929
+              </a>
+            </div>
+          </section>
+
+          <SuggestionBox lang={lang} t={t} />
+        </div>
       </div>
     </main>
   );
