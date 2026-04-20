@@ -1,5 +1,5 @@
 /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap');
 
 :root {
   /* Parallax */
@@ -45,8 +45,8 @@
   --radius-xl: 32px;
 
   /* Typography */
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Tajawal', system-ui, sans-serif;
+  --font-display: 'Cairo', Georgia, serif;
 
   /* Transitions */
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -216,13 +216,14 @@ img    { max-width: 100%; display: block; }
 .home__title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 800;
+  line-height: 1.4; /* Fixed cut off */
+  padding-bottom: 8px; /* Extra space for Arabic descenders */
   background: linear-gradient(135deg, #f0eefc 0%, var(--accent-light) 60%, #7c5cbf 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .home__tagline {
@@ -956,39 +957,44 @@ img    { max-width: 100%; display: block; }
 }
 
 /* Give them trailing elastic physics using distinct transition durations */
-.mouse-swarm-node--1 { transition: transform 0.05s ease-out; width: 6px; height: 6px; opacity: 1; }
-.mouse-swarm-node--2 { transition: transform 0.12s ease-out; width: 10px; height: 10px; opacity: 0.8; }
-.mouse-swarm-node--3 { transition: transform 0.20s ease-out; width: 14px; height: 14px; opacity: 0.6; }
-.mouse-swarm-node--4 { transition: transform 0.28s ease-out; width: 18px; height: 18px; opacity: 0.4; }
-.mouse-swarm-node--5 { transition: transform 0.38s ease-out; width: 24px; height: 24px; opacity: 0.2; }
-.mouse-swarm-node--6 { transition: transform 0.50s ease-out; width: 32px; height: 32px; opacity: 0.1; }
+.mouse-swarm-node--1 { transition: transform 0.1s ease-out; width: 6px; height: 6px; opacity: 1; }
+.mouse-swarm-node--2 { transition: transform 0.2s ease-out; width: 10px; height: 10px; opacity: 0.8; }
+.mouse-swarm-node--3 { transition: transform 0.35s ease-out; width: 14px; height: 14px; opacity: 0.6; }
+.mouse-swarm-node--4 { transition: transform 0.5s ease-out; width: 18px; height: 18px; opacity: 0.4; }
+.mouse-swarm-node--5 { transition: transform 0.65s ease-out; width: 24px; height: 24px; opacity: 0.2; }
+.mouse-swarm-node--6 { transition: transform 0.85s ease-out; width: 32px; height: 32px; opacity: 0.1; }
 
 
 /* ─── THEME ADAPTATION & SHAPES ────────────────────────────────────────────── */
 
-/* Horror: Blood shards / Sharp diamonds */
+/* Horror: Soft diamonds */
 .interactive-bg--horror .interactive-particle,
 .interactive-bg--horror .mouse-swarm-node {
-  border-radius: 0;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  border-radius: 8px;
   background: rgba(255, 120, 120, 0.5);
   box-shadow: 0 0 16px rgba(230, 80, 80, 0.9);
 }
+.interactive-bg--horror .mouse-swarm-node {
+  /* Using JS injected translation, adding rotate */
+  transform: translate(var(--clientX, 50vw), var(--clientY, 50vh)) rotate(45deg);
+}
 
-/* Mystery: Digital/Analog sharp squares */
+/* Mystery: Digital/Analog soft squares */
 .interactive-bg--mystery .interactive-particle,
 .interactive-bg--mystery .mouse-swarm-node {
-  border-radius: 2px; /* Small rounded squares */
-  clip-path: none;
+  border-radius: 8px; /* Medium soft squares */
   background: rgba(120, 180, 255, 0.5);
   box-shadow: 0 0 16px rgba(80, 160, 240, 0.9);
 }
 
-/* Psychological: Triangles / Broken Shards */
+/* Psychological: Smooth teardrop/petal shape replacing sharp triangles */
 .interactive-bg--psychological .interactive-particle,
 .interactive-bg--psychological .mouse-swarm-node {
-  border-radius: 0;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 0 50% 50% 50%;
   background: rgba(180, 120, 255, 0.5);
   box-shadow: 0 0 16px rgba(160, 80, 240, 0.9);
+}
+.interactive-bg--psychological .mouse-swarm-node {
+  /* Using JS injected translation, adding rotate */
+  transform: translate(var(--clientX, 50vw), var(--clientY, 50vh)) rotate(45deg);
 }
