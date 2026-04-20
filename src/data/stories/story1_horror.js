@@ -15,9 +15,9 @@ const nodes = [
     id: 'h_start',
     requiresName: 'auntName',
     en: (v) =>
-      `The letter arrived on a Thursday.\n\n"Your aunt ${v.names?.auntName ?? 'Mara'} has passed. She has left you her estate at 14 Hollow Lane. A lawyer will meet you there on Saturday."\n\nYou barely knew her. A faded photograph. A Christmas card once, with no return address. And now this.\n\nWhen you arrive, the sky is the color of old bruises. The house stands at the end of a dirt road, surrounded by dead oaks whose branches claw at the air. Every window is dark. The front door is already ajar.\n\nSomething about that open door makes your stomach tighten.`,
+      `The letter arrived on a Thursday.\n\n"Your aunt ${v.names?.auntName ?? 'Mara'} has passed. She has left you her estate at 14 Hollow Lane. A lawyer will meet you there on Saturday."\n\nYou barely knew her. A faded photograph. A greeting card once, with no return address. And now this.\n\nWhen you arrive, the sky is the color of old bruises. The house stands at the end of a dirt road, surrounded by dead oaks whose branches claw at the air. Every window is dark. The front door is already ajar.\n\nSomething about that open door makes your stomach tighten.`,
     ar: (v) =>
-      `وصل الخطاب يوم الخميس.\n\n"توفيت عمتك ${v.names?.auntName ?? 'مارا'}. تركت لك عقارها في طريق هولو، رقم 14. سيلتقي بك محامٍ هناك يوم السبت."\n\nبالكاد كنت تعرفها. صورة باهتة. بطاقة عيد ميلاد مسيحي مرة، بلا عنوان للرد. والآن هذا.\n\nحين تصل، السماء بلون كدمات قديمة. يقف المنزل في نهاية طريق ترابي، محاطًا بأشجار بلوط ميتة تخز أغصانها الهواء. كل نافذة مظلمة. الباب الأمامي مفتوح قليلًا بالفعل.\n\nشيء ما في ذلك الباب المفتوح يُشدّ معدتك.`,
+      `وصل الخطاب يوم الخميس.\n\n"توفيت عمتك ${v.names?.auntName ?? 'مارا'}. تركت لك عقارها في طريق هولو، رقم 14. سيلتقي بك محامٍ هناك يوم السبت."\n\nبالكاد كنت تعرفها. صورة باهتة. بطاقة معايدة مرة، بلا عنوان للرد. والآن هذا.\n\nحين تصل، السماء بلون كدمات قديمة. يقف المنزل في نهاية طريق ترابي، محاطًا بأشجار بلوط ميتة تخز أغصانها الهواء. كل نافذة مظلمة. الباب الأمامي مفتوح قليلًا بالفعل.\n\nشيء ما في ذلك الباب المفتوح يُشدّ معدتك.`,
     choices: [
       {
         id: 'h_s_enter',
@@ -483,9 +483,9 @@ const nodes = [
   {
     id: 'h_bookshelves',
     en: () =>
-      `Between two tall books on demonology you find a sealed plastic bag. Inside: a handwritten note and a small iron fireplace poker, miniaturized — perhaps a paperweight.\n\nThe note reads: "It cannot cross iron. Keep this near you always."\n\nYou also find an old book marked with a sticky note: "Chapter 7 — Binding through Sound." The relevant passage: "An entity bound by spoken invitation may be released only by burning the original invocation in the presence of the bound threshold."\n\nThe basement door. You need to find the invitation and burn it at the basement door.`,
+      `Between two tall books on the occult you find a sealed plastic bag. Inside: a handwritten note and a small iron fireplace poker, miniaturized — perhaps a paperweight.\n\nThe note reads: "It cannot cross iron. Keep this near you always."\n\nYou also find an old book marked with a sticky note: "Chapter 7 — Binding through Sound." The relevant passage: "An entity bound by spoken invitation may be released only by burning the original invocation in the presence of the bound threshold."\n\nThe basement door. You need to find the invitation and burn it at the basement door.`,
     ar: () =>
-      `بين كتابين كبيرين عن علم الشياطين تجد حقيبة بلاستيكية مختومة. بداخلها: ملاحظة مكتوبة بخط اليد وقضيب مدفأة حديدي صغير — ربما ثقل أوراق.\n\nالملاحظة تقرأ: "إنه لا يستطيع تجاوز الحديد. احتفظ بهذا قريبًا منك دائمًا."\n\nتجد أيضًا كتابًا قديمًا مُعلَّمًا بملاحظة لاصقة: "الفصل السابع — الربط عبر الصوت." المقطع ذو الصلة: "يمكن للكيان المقيّد بدعوة منطوقة أن يُحرَّر فقط بحرق الدعوة الأصلية في حضور العتبة المقيّدة."\n\nباب القبو. تحتاج إلى إيجاد الدعوة وإحراقها عند باب القبو.`,
+      `بين كتابين كبيرين عن عالم الخوارق تجد حقيبة بلاستيكية مختومة. بداخلها: ملاحظة مكتوبة بخط اليد وقضيب مدفأة حديدي صغير — ربما ثقل أوراق.\n\nالملاحظة تقرأ: "إنه لا يستطيع تجاوز الحديد. احتفظ بهذا قريبًا منك دائمًا."\n\nتجد أيضًا كتابًا قديمًا مُعلَّمًا بملاحظة لاصقة: "الفصل السابع — الربط عبر الصوت." المقطع ذو الصلة: "يمكن للكيان المقيّد بدعوة منطوقة أن يُحرَّر فقط بحرق الدعوة الأصلية في حضور العتبة المقيّدة."\n\nباب القبو. تحتاج إلى إيجاد الدعوة وإحراقها عند باب القبو.`,
     choices: [
       {
         id: 'h_bs_iron',
@@ -1127,9 +1127,9 @@ const nodes = [
   {
     id: 'h_invitation_clue',
     en: () =>
-      `"I wrote a name," the voice says. "That was all it took. I found a ritual in one of the books — old, European, pre-Christian. You write a name on paper and burn it in the space between the basement door and the threshold. An invitation.\n\nI was lonely. I didn't know what I was doing.\n\n"The invitation still exists. It didn't burn completely — I panicked and doused it. Part of it is still down there, on the ledge above the door. Find it. Actually burn it this time."\n\nThere is grief in the voice that no ghost should be capable of.`,
+      `"I wrote a name," the voice says. "That was all it took. I found a ritual in one of the books — old, European, ancient. You write a name on paper and burn it in the space between the basement door and the threshold. An invitation.\n\nI was lonely. I didn't know what I was doing.\n\n"The invitation still exists. It didn't burn completely — I panicked and doused it. Part of it is still down there, on the ledge above the door. Find it. Actually burn it this time."\n\nThere is grief in the voice that no ghost should be capable of.`,
     ar: () =>
-      `"كتبت اسمًا،" يقول الصوت. "ذلك كان كافيًا. وجدت طقسًا في أحد الكتب — قديم، أوروبي، قبل المسيحية. تكتب اسمًا على ورقة وتحرقه في المساحة بين باب القبو والعتبة. دعوة.\n\nكنت وحيدة. لم أكن أعرف ما أفعله.\n\n"الدعوة لا تزال موجودة. لم تحترق بالكامل — أصابني الذعر وأطفأتها. جزء منها لا يزال هناك، على الحافة فوق الباب. اجدها. احرقها فعليًا هذه المرة."\n\nفي الصوت حزن لا ينبغي أن يكون أي شبح قادرًا عليه.`,
+      `"كتبت اسمًا،" يقول الصوت. "ذلك كان كافيًا. وجدت طقسًا في أحد الكتب — قديم، أوروبي، من العصور القديمة. تكتب اسمًا على ورقة وتحرقه في المساحة بين باب القبو والعتبة. دعوة.\n\nكنت وحيدة. لم أكن أعرف ما أفعله.\n\n"الدعوة لا تزال موجودة. لم تحترق بالكامل — أصابني الذعر وأطفأتها. جزء منها لا يزال هناك، على الحافة فوق الباب. اجدها. احرقها فعليًا هذه المرة."\n\nفي الصوت حزن لا ينبغي أن يكون أي شبح قادرًا عليه.`,
     choices: [
       {
         id: 'h_ic_basement',

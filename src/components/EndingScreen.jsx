@@ -2,7 +2,7 @@ import React from 'react';
 
 const ENDING_GLYPHS = {
   success: '✦',
-  death: '✝',
+  death: '☠',
   failure: '✗',
   secret: '◈',
 };
