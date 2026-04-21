@@ -254,6 +254,8 @@ const nodes = [
         en: () => 'Take it this time — you need to trust something',
         ar: () => 'خذه هذه المرة — تحتاج الثقة بشيء ما',
         next: 'p_medicated',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, medicationTaken: 1 },
       },
       {
@@ -330,6 +332,8 @@ const nodes = [
         en: () => 'Take the medication — process this later',
         ar: () => 'خذ الدواء — عالج هذا لاحقًا',
         next: 'p_medicated',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, medicationTaken: 1 },
       },
       {
@@ -337,6 +341,8 @@ const nodes = [
         en: () => 'Refuse — this knowledge means something',
         ar: () => 'ارفض — هذه المعرفة تعني شيئًا',
         next: 'p_refuse_meds',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 2 },
       },
       {
@@ -351,6 +357,8 @@ const nodes = [
         en: () => 'Pretend to take it — but keep your mind clear',
         ar: () => 'تظاهر بأخذه — لكن أبقِ عقلك صافيًا',
         next: 'p_fake_meds',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
     ],
@@ -390,6 +398,8 @@ const nodes = [
         en: () => 'Accept the medication — maybe it will help unlock memories',
         ar: () => 'اقبل الدواء — ربما يساعد في فتح الذكريات',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -445,6 +455,8 @@ const nodes = [
         en: () => 'Accept this explanation — cooperate',
         ar: () => 'اقبل هذا التفسير — تعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -492,6 +504,8 @@ const nodes = [
         en: (v) => `Accept Dr. ${v.names?.doctorName ?? 'Elias'}\'s explanation — maybe you imagined it`,
         ar: (v) => `اقبل تفسير الدكتور ${v.names?.doctorName ?? 'إلياس'} — ربما تخيّلت ذلك`,
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, realityScore: -1 },
       },
       {
@@ -606,6 +620,8 @@ const nodes = [
         en: () => 'Tell them what you\'ve remembered — the hallway, the numbers, the marks',
         ar: () => 'أخبرهم بما تذكّرت — الممر، الأرقام، العلامات',
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2 },
       },
       {
@@ -613,6 +629,8 @@ const nodes = [
         en: () => 'Trust them — they\'re another piece of what you need to understand',
         ar: () => 'ثق بهم — هم قطعة أخرى مما تحتاج لفهمه',
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -755,6 +773,8 @@ const nodes = [
         en: () => 'Try 1114 — the date from your memory',
         ar: () => 'جرّب 1114 — التاريخ من ذاكرتك',
         next: 'p_room412_open',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1 },
       },
       {
@@ -912,6 +932,8 @@ const nodes = [
         en: (v) => `Confront Dr. ${v.names?.doctorName ?? 'Elias'} with this`,
         ar: (v) => `واجه الدكتور ${v.names?.doctorName ?? 'إلياس'} بهذا`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true, memories: 2, realityScore: 2 },
       },
       {
@@ -964,6 +986,8 @@ const nodes = [
         en: (v) => `Confront Dr. ${v.names?.doctorName ?? 'Elias'} with everything`,
         ar: (v) => `واجه الدكتور ${v.names?.doctorName ?? 'إلياس'} بكل شيء`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true, memories: 2 },
       },
       {
@@ -1028,6 +1052,8 @@ const nodes = [
         en: () => 'That look wakes something in you — stop taking the medication',
         ar: () => 'تلك النظرة تصحو شيئًا فيك — توقف عن أخذ الدواء',
         next: 'p_fake_meds',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 2 },
       },
       {
@@ -1035,6 +1061,8 @@ const nodes = [
         en: (v) => `Approach ${v.names?.otherName ?? 'The Other'} — ask why they looked at you that way`,
         ar: (v) => `اقترب من ${v.names?.otherName ?? 'الآخر'} — اسأل لماذا نظرا إليك هكذا`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1088,6 +1116,8 @@ const nodes = [
         en: () => 'You\'re not sure you are ready. Stay a little longer.',
         ar: () => 'لست متأكدًا من أنك مستعد. ابقَ قليلًا أطول.',
         next: 'p_compliance_path',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
     ],
@@ -1190,6 +1220,8 @@ const nodes = [
         en: (v) => `Not without ${v.names?.otherName ?? 'The Other'}`,
         ar: (v) => `ليس دون ${v.names?.otherName ?? 'الآخر'}`,
         next: 'p_demand_freedom',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1243,6 +1275,8 @@ const nodes = [
         en: (v) => `Make sure ${v.names?.otherName ?? 'The Other'} gets justice first`,
         ar: (v) => `تأكد من حصول ${v.names?.otherName ?? 'الآخر'} على العدالة أولًا`,
         next: 'p_demand_freedom',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true },
       },
     ],
@@ -1274,6 +1308,8 @@ const nodes = [
         en: (v) => `Free ${v.names?.otherName ?? 'The Other'} first`,
         ar: (v) => `حرر ${v.names?.otherName ?? 'الآخر'} أولًا`,
         next: 'p_demand_freedom',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1281,6 +1317,8 @@ const nodes = [
         en: () => 'Stay another week — you\'re not done processing this',
         ar: () => 'ابقَ أسبوعًا آخر — أنت لم تنتهِ من معالجة هذا',
         next: 'p_compliance_path',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1299,6 +1337,8 @@ const nodes = [
         en: () => 'Ask about the mark on their wrist',
         ar: () => 'اسأل عن العلامة على معصمهم',
         next: 'p_observe_arrival',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1306,6 +1346,8 @@ const nodes = [
         en: (v) => `Ask about ${v.names?.otherName ?? 'The Other'} — the person you keep seeing`,
         ar: (v) => `اسأل عن ${v.names?.otherName ?? 'الآخر'} — الشخص الذي تراه باستمرار`,
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'You haven\'t encountered them yet',
         lockedAr: 'لم تصادفهم بعد',
@@ -1323,6 +1365,8 @@ const nodes = [
         en: () => 'Push memories — think hard about the gray building',
         ar: () => 'ادفع الذكريات — فكّر بشدة في المبنى الرمادي',
         next: 'p_professional_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1 },
       },
     ],
@@ -1330,6 +1374,7 @@ const nodes = [
 
   {
     id: 'p_midnight_corridor',
+    fallbackNext: 'p_records_request',
     en: () =>
       `You open your door. The corridor is dim — nighttime lighting only, a warm amber strip at floor level.\n\nFour doors away from you, a figure stands. Watching your door. Completely still.\n\nThen they move. Not toward you — away. Down the corridor. Turning left at the nurses' station.\n\nYou follow.\n\nBy the time you reach the turn, the corridor is empty. But one door is not fully closed — room 412.`,
     ar: () =>
@@ -1340,6 +1385,8 @@ const nodes = [
         en: () => 'Enter room 412',
         ar: () => 'ادخل الغرفة 412',
         next: 'p_room412_open',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, memories: 1 },
       },
       {
@@ -1347,6 +1394,8 @@ const nodes = [
         en: () => 'Knock before entering',
         ar: () => 'اطرق قبل الدخول',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1354,6 +1403,8 @@ const nodes = [
         en: () => 'Retreat — this could be a trap',
         ar: () => 'تراجع — قد يكون هذا فخًا',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1361,6 +1412,8 @@ const nodes = [
         en: () => 'Wait in the corridor — see if the figure comes back out',
         ar: () => 'انتظر في الممر — لاحظ إذا عاد الشكل للخروج',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -1368,6 +1421,7 @@ const nodes = [
 
   {
     id: 'p_records_request',
+    fallbackNext: 'p_badge_response',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} is silent for a moment.\n\n"You have every right to your records. We'll prepare them." A pause. "It will take a day."\n\n"A day for what? It's a digital system."\n\nThey meet your eyes. "Some records require attending physician review before patient release."\n\nNine words that tell you everything: they can redact before you see the files.`,
     ar: (v) =>
@@ -1378,6 +1432,8 @@ const nodes = [
         en: () => '"Now. Or I walk out and call a lawyer."',
         ar: () => '"الآن. أو أمشي وأتصل بمحامٍ."',
         next: 'p_departure_process',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -2, realityScore: 1 },
       },
       {
@@ -1385,6 +1441,8 @@ const nodes = [
         en: () => 'Skip the official records — find room 412',
         ar: () => 'تجاوز السجلات الرسمية — اجد الغرفة 412',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -1392,6 +1450,8 @@ const nodes = [
         en: () => 'Wait a day — then review',
         ar: () => 'انتظر يومًا — ثم راجع',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -1399,6 +1459,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} instead`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} بدلًا من ذلك`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -1416,6 +1478,8 @@ const nodes = [
         en: () => '"What did you just write down?"',
         ar: () => '"ماذا دوّنت للتو؟"',
         next: 'p_clipboard_question',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1, trust: -1 },
       },
       {
@@ -1430,6 +1494,8 @@ const nodes = [
         en: () => 'Drop it — cooperate for now',
         ar: () => 'اتركه — تعاون في الوقت الحالي',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -1437,6 +1503,8 @@ const nodes = [
         en: () => 'Ask who else is in this ward',
         ar: () => 'اسأل من آخر في هذا الجناح',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1444,6 +1512,7 @@ const nodes = [
 
   {
     id: 'p_key_question',
+    fallbackNext: 'p_wrist_moment',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} looks at the key. Their hand moves to cover it slightly.\n\n"Personal key. Some staff keep personal items in locked storage."\n\n"In a psychiatric ward?"\n\nA pause. "It's not unusual."\n\nIt IS unusual. Personal locked storage in a psychiatric ward implies something worth locking away. Worth separating from the facility's systems.`,
     ar: (v) =>
@@ -1454,6 +1523,8 @@ const nodes = [
         en: () => 'Accept this and move on — save the suspicion for later',
         ar: () => 'اقبل هذا وتابع — احتفظ بالشك للاحقًا',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -1461,6 +1532,8 @@ const nodes = [
         en: () => '"What\'s in the personal storage?"',
         ar: () => '"ما الذي في التخزين الشخصي؟"',
         next: 'p_clipboard_question',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 1 },
       },
       {
@@ -1468,6 +1541,8 @@ const nodes = [
         en: () => 'Room 412 — find it tonight',
         ar: () => 'الغرفة 412 — اجدها الليلة',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -1475,6 +1550,8 @@ const nodes = [
         en: () => 'Ask about the other patients in the ward',
         ar: () => 'اسأل عن المرضى الآخرين في الجناح',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1482,6 +1559,7 @@ const nodes = [
 
   {
     id: 'p_wrist_moment',
+    fallbackNext: 'p_consistently_refusing',
     en: (v) =>
       `You point to Dr. ${v.names?.doctorName ?? 'Elias'}\'s wrist without speaking.\n\nThey look down. Then back up at you.\n\nFor three seconds, the clinical distance in their eyes is gone entirely. Something real — something tired and real — looks at you.\n\nThen it's back.\n\n"An old injury," they say. "From many years ago."\n\nThey make a note. You see your own wrist for the first time — the same mark. Identical placement.`,
     ar: (v) =>
@@ -1492,6 +1570,8 @@ const nodes = [
         en: () => '"I have the same mark. What does it mean?"',
         ar: () => '"لديّ نفس العلامة. ماذا تعني؟"',
         next: 'p_mark_meaning',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.realityScore >= 2,
         lockedEn: 'You haven\'t noticed your own wrist yet',
         lockedAr: 'لم تلاحظ معصمك الخاص بعد',
@@ -1502,6 +1582,8 @@ const nodes = [
         en: () => 'Accept their answer and cooperate',
         ar: () => 'اقبل إجابتهم وتعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -1509,6 +1591,8 @@ const nodes = [
         en: () => 'Look for the same mark on other staff members',
         ar: () => 'ابحث عن نفس العلامة على أعضاء الطاقم الآخرين',
         next: 'p_other_study',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -1519,6 +1603,8 @@ const nodes = [
         en: () => 'Try to push the memory — what do you know about this mark?',
         ar: () => 'حاول دفع الذاكرة — ماذا تعرف عن هذه العلامة؟',
         next: 'p_professional_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1 },
       },
     ],
@@ -1526,6 +1612,7 @@ const nodes = [
 
   {
     id: 'p_consistently_refusing',
+    fallbackNext: 'p_nurse_clue',
     en: (v) =>
       `Three days of refusing. The documentation is growing thick.\n\nDr. ${v.names?.doctorName ?? 'Elias'} informs you, very calmly, that consistent refusal of prescribed medication in a voluntary care setting could trigger a mandatory psychiatric review. "Not a threat," they add. "Protocol."\n\nYou understand: comply or be involuntarily committed. And involuntary commitment removes your ability to leave at will.`,
     ar: (v) =>
@@ -1536,6 +1623,8 @@ const nodes = [
         en: () => 'Start faking compliance — take and discard',
         ar: () => 'ابدأ التظاهر بالامتثال — خذ واتخلص',
         next: 'p_fake_meds',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, realityScore: 2 },
       },
       {
@@ -1543,6 +1632,8 @@ const nodes = [
         en: () => 'Demand to leave — you can\'t be held involuntarily yet',
         ar: () => 'اطلب المغادرة — لا يمكن احتجازك قسرًا بعد',
         next: 'p_departure_process',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -2 },
       },
       {
@@ -1550,6 +1641,8 @@ const nodes = [
         en: () => 'Take the medication — you\'re not winning this battle',
         ar: () => 'خذ الدواء — لم تربح هذه المعركة',
         next: 'p_medicated',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, medicationTaken: 1 },
       },
       {
@@ -1557,6 +1650,8 @@ const nodes = [
         en: () => 'Find room 412 before they can formally review you',
         ar: () => 'اجد الغرفة 412 قبل أن يستطيعوا مراجعتك رسميًا',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
     ],
@@ -1574,6 +1669,8 @@ const nodes = [
         en: () => 'Research compound — this is experimental treatment. Confront Dr. Elias.',
         ar: () => 'مركب بحثي — هذا علاج تجريبي. واجه الدكتور.',
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 3, trust: -2 },
       },
       {
@@ -1581,6 +1678,8 @@ const nodes = [
         en: () => 'ARES. Program ARES. Find room 412.',
         ar: () => 'آريس. برنامج آريس. اجد الغرفة 412.',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 3, memories: 2 },
       },
       {
@@ -1595,6 +1694,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} — show them this`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} — أرهم هذا`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -1605,6 +1706,7 @@ const nodes = [
 
   {
     id: 'p_office_memory',
+    fallbackNext: 'p_memory_push',
     en: () =>
       `You close your eyes and push into the memory.\n\nA desk. Your desk. The nameplate is still blurred. But the papers on it — you can see them clearly now. Patient files. Research files. ARES in bold on the folders.\n\nYou are the researcher. You were sitting in that room assessing how the protocol was working on other people.\n\nThen — a decision. A moment of decision. You, picking up a pen. You, signing something. \n\nConsent form. Your own name on the patient line.`,
     ar: () =>
@@ -1615,6 +1717,8 @@ const nodes = [
         en: () => 'You volunteered yourself. Accept this and find your way out.',
         ar: () => 'أنت تطوّعت بنفسك. اقبل هذا واجد طريقك للخروج.',
         next: 'p_files_reveal',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true, memories: 3, realityScore: 2 },
       },
       {
@@ -1622,6 +1726,8 @@ const nodes = [
         en: () => 'But WHY? What pushed you to do this to yourself?',
         ar: () => 'لكن لماذا؟ ما الذي دفعك لفعل هذا بنفسك؟',
         next: 'p_who_before',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2 },
       },
       {
@@ -1629,6 +1735,8 @@ const nodes = [
         en: () => 'Room 412 — your office is number 412',
         ar: () => 'الغرفة 412 — مكتبك الرقم 412',
         next: 'p_room412_open',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2, realityScore: 2 },
       },
       {
@@ -1636,6 +1744,8 @@ const nodes = [
         en: (v) => `Tell Dr. ${v.names?.doctorName ?? 'Elias'} what you\'ve just remembered`,
         ar: (v) => `أخبر الدكتور ${v.names?.doctorName ?? 'إلياس'} بما تذكّرته للتو`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2, doctorMode: true },
       },
     ],
@@ -1643,6 +1753,7 @@ const nodes = [
 
   {
     id: 'p_memory_push',
+    fallbackNext: 'p_doctor_knows',
     en: () =>
       `You push. The hallway. The doors. The numbers.\n\nYou were moving with purpose. It wasn't a visit. It was rounds.\n\nYou were checking on patients. Your patients. In the rooms numbered 401 through 407. Checking their responses, their recall, their reintegration progress.\n\nYou were the one with the clipboard. You were the one in the professional clothes. You were the one who wrote notes.\n\nThe memory collapses before you can see your own face clearly. But you know: you were not a patient in that hallway.`,
     ar: () =>
@@ -1653,6 +1764,8 @@ const nodes = [
         en: (v) => `Confront Dr. ${v.names?.doctorName ?? 'Elias'} with this memory`,
         ar: (v) => `واجه الدكتور ${v.names?.doctorName ?? 'إلياس'} بهذه الذكرى`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2, realityScore: 1 },
       },
       {
@@ -1660,6 +1773,8 @@ const nodes = [
         en: () => 'Room 412 — what\'s in there?',
         ar: () => 'الغرفة 412 — ما الذي فيها؟',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1 },
       },
       {
@@ -1667,6 +1782,8 @@ const nodes = [
         en: () => 'Push harder into the memory — see your face',
         ar: () => 'ادفع أعمق في الذاكرة — اعرف وجهك',
         next: 'p_office_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2 },
       },
       {
@@ -1674,6 +1791,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} — tell them what you remembered`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} — أخبرهم بما تذكّرت`,
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -1684,6 +1803,7 @@ const nodes = [
 
   {
     id: 'p_doctor_knows',
+    fallbackNext: 'p_form_examine',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} tells you what they claim to know:\n\nYou arrived three weeks ago in severe distress. You couldn't state your name or identify basic biographical details. You were gently admitted under a voluntary care protocol.\n\nThey use the word 'gently' twice. You notice this.\n\nWhat they claim NOT to know: what caused the distress. Whether you have family to contact. Your occupation.\n\nThings they should have on file if you were admitted properly: all of those things.`,
     ar: (v) =>
@@ -1694,6 +1814,8 @@ const nodes = [
         en: () => '"Why is none of that in my file?"',
         ar: () => '"لماذا لا يوجد أي من ذلك في ملفي؟"',
         next: 'p_clipboard_question',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, trust: -1 },
       },
       {
@@ -1701,6 +1823,8 @@ const nodes = [
         en: () => 'Request the full records immediately',
         ar: () => 'اطلب السجلات الكاملة فورًا',
         next: 'p_records_request',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1708,6 +1832,8 @@ const nodes = [
         en: () => '"If you don\'t know who I am, how do you know I have no family to contact?"',
         ar: () => '"إذا لا تعرفون من أنا، كيف تعرفون أنه لا توجد عائلة للتواصل معها؟"',
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, trust: -1 },
       },
       {
@@ -1715,6 +1841,8 @@ const nodes = [
         en: () => 'Accept this for now and cooperate',
         ar: () => 'اقبل هذا في الوقت الحالي وتعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 2 },
       },
     ],
@@ -1722,6 +1850,7 @@ const nodes = [
 
   {
     id: 'p_form_examine',
+    fallbackNext: 'p_delusion_detail',
     en: () =>
       `You study every corner of the form.\n\nAdmission date. Three weeks ago. Check.\nTreating physician: Dr. ${`[Elias name]`}. Check.\nFacility code: STD-ARES. Not STD-GEN (general). Not STD-ACUTE.\n\nSTD-ARES. A separate admission track.\n\nYou are not in the general psychiatric ward.\n\nYou are in the ARES wing.`,
     ar: () =>
@@ -1732,6 +1861,8 @@ const nodes = [
         en: (v) => `Confront Dr. ${v.names?.doctorName ?? 'Elias'} — what is ARES?`,
         ar: (v) => `واجه الدكتور ${v.names?.doctorName ?? 'إلياس'} — ما هو آريس؟`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 3, trust: -2 },
       },
       {
@@ -1739,6 +1870,8 @@ const nodes = [
         en: () => 'Find room 412 — that\'s where the ARES files are',
         ar: () => 'اجد الغرفة 412 — هناك توجد ملفات آريس',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -1746,6 +1879,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} — they said they worked here`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} — قالوا إنهم عملوا هنا`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -1756,6 +1891,8 @@ const nodes = [
         en: () => 'File this information and cooperate for now',
         ar: () => 'سجّل هذه المعلومات وتعاون في الوقت الحالي',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, realityScore: 1 },
       },
     ],
@@ -1763,6 +1900,7 @@ const nodes = [
 
   {
     id: 'p_delusion_detail',
+    fallbackNext: 'p_name_redacted',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} meets your eyes.\n\n"The primary presenting delusion was that you were a medical professional. You claimed to have institutional authority. You attempted to give instructions to staff members."A pause. "When those instructions were not followed, you became distressed."\n\nYou hear this. You consider it.\n\nA person who believes they are a doctor, acting like a doctor, dismissed as delusional by the actual doctors.\n\nOr: an actual doctor who has been placed in a situation where no one will confirm their identity.`,
     ar: (v) =>
@@ -1773,6 +1911,8 @@ const nodes = [
         en: () => 'Ask them a specific clinical question only a doctor would know',
         ar: () => 'اسألهم سؤالًا سريريًا محددًا لا يعرفه إلا الطبيب',
         next: 'p_professional_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, memories: 1 },
       },
       {
@@ -1780,6 +1920,8 @@ const nodes = [
         en: () => 'Accept the diagnosis tentatively — cooperate',
         ar: () => 'اقبل التشخيص مبدئيًا — تعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 2, realityScore: -1 },
       },
       {
@@ -1787,6 +1929,8 @@ const nodes = [
         en: () => 'Room 412 — find what\'s there tonight',
         ar: () => 'الغرفة 412 — اجد ما فيها الليلة',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1794,6 +1938,8 @@ const nodes = [
         en: () => 'There\'s someone else here who you\'ve glimpsed — find them',
         ar: () => 'هناك شخص آخر هنا رأيته طرفًا منه — اجده',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -1811,6 +1957,8 @@ const nodes = [
         en: () => 'Accept this explanation and cooperate',
         ar: () => 'اقبل هذا التفسير وتعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 2 },
       },
       {
@@ -1818,6 +1966,8 @@ const nodes = [
         en: () => '"Tell me my name. From the records."',
         ar: () => '"أخبرني باسمي. من السجلات."',
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 1 },
       },
       {
@@ -1832,6 +1982,8 @@ const nodes = [
         en: () => 'Ask about the mark on their wrist instead',
         ar: () => 'اسأل عن العلامة على معصمهم بدلًا من ذلك',
         next: 'p_wrist_moment',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -1839,6 +1991,7 @@ const nodes = [
 
   {
     id: 'p_name_attempt',
+    fallbackNext: 'p_ward_explained',
     en: () =>
       `You push. Hard.\n\nThe slot is there. You can feel it. It's like pressing a finger into a bruise that isn't visible — the pain is there but you can't see the wound.\n\nA letter. A first letter. Feeling rather than seeing: something with a curve. A C, or G, or O, or S.\n\nThen it's gone. Your head aches.\n\nBut you got something. A shape. A starting point.`,
     ar: () =>
@@ -1849,6 +2002,8 @@ const nodes = [
         en: () => 'Keep pressing — try for the second letter',
         ar: () => 'استمر في الضغط — حاول للحرف الثاني',
         next: 'p_professional_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2 },
       },
       {
@@ -1856,6 +2011,8 @@ const nodes = [
         en: () => 'Stop — your head can\'t take more pressure right now',
         ar: () => 'توقف — رأسك لا يستطيع تحمل مزيد من الضغط الآن',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1863,6 +2020,8 @@ const nodes = [
         en: (v) => `Tell Dr. ${v.names?.doctorName ?? 'Elias'} what you accessed`,
         ar: (v) => `أخبر الدكتور ${v.names?.doctorName ?? 'إلياس'} بما وصلت إليه`,
         next: 'p_fragment_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, memories: 1 },
       },
       {
@@ -1870,6 +2029,8 @@ const nodes = [
         en: () => 'Look for the person you keep glimpsing in the corridor',
         ar: () => 'ابحث عن الشخص الذي تلمحه باستمرار في الممر',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1877,6 +2038,7 @@ const nodes = [
 
   {
     id: 'p_ward_explained',
+    fallbackNext: 'p_other_trust_question',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} explains: St. Adalyn's is a private psychiatric care facility. This wing has sixteen rooms. Currently occupied: eight patients. The roster is not something they share between patients.\n\nYou have full access to the common areas, garden, library. Meals at 7, 12, and 6. Lights out at 10, but not enforced — just recommended.\n\n"It's more like a retreat than a hospital," they say.\n\nThe word 'retreat' sits wrong. Retreats have exits.`,
     ar: (v) =>
@@ -1887,6 +2049,8 @@ const nodes = [
         en: () => '"Where is the exit? The main doors?"',
         ar: () => '"أين المخرج؟ الأبواب الرئيسية؟"',
         next: 'p_doctor_reveals',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 1 },
       },
       {
@@ -1894,6 +2058,8 @@ const nodes = [
         en: () => '"The other patients — can I interact with them?"',
         ar: () => '"المرضى الآخرون — هل يمكنني التفاعل معهم؟"',
         next: 'p_other_appears',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1901,6 +2067,8 @@ const nodes = [
         en: () => '"The library — what\'s in it?"',
         ar: () => '"المكتبة — ما فيها؟"',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1 },
       },
       {
@@ -1908,6 +2076,8 @@ const nodes = [
         en: () => 'Accept the medication — it might help',
         ar: () => 'اقبل الدواء — قد يساعد',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
     ],
@@ -1915,6 +2085,7 @@ const nodes = [
 
   {
     id: 'p_other_trust_question',
+    fallbackNext: 'p_other_proof',
     en: (v) =>
       `${v.names?.otherName ?? 'The Other'} considers this.\n\n"You shouldn't. You don't know me. But I'll tell you this: I'm the only person in this unit who hasn't been given medication against my will. I'm the only one whose file doesn't have a research code on it. I'm not better off here than you. But I'm at least accurately documented."\n\nA pause.\n\n"Also — there's a mark on your wrist. Check it. Then look at Dr. ${v.names?.doctorName ?? 'Elias'}\'s wrist. Same mark."`,
     ar: (v) =>
@@ -1925,6 +2096,8 @@ const nodes = [
         en: () => 'Check your wrist — look at the mark',
         ar: () => 'تحقق من معصمك — انظر إلى العلامة',
         next: 'p_mark_meaning',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, memories: 1 },
       },
       {
@@ -1932,6 +2105,8 @@ const nodes = [
         en: () => '"Tell me what they haven\'t told me."',
         ar: () => '"أخبرني ما لم يخبروني به."',
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1939,6 +2114,8 @@ const nodes = [
         en: () => '"Room 412. What\'s in there?"',
         ar: () => '"الغرفة 412. ما فيها؟"',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1946,6 +2123,8 @@ const nodes = [
         en: () => 'Leave this alone — too uncertain',
         ar: () => 'اترك هذا جانبًا — غير مؤكد',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1963,6 +2142,8 @@ const nodes = [
         en: () => 'Go for room 412 together',
         ar: () => 'اذهبا معًا للغرفة 412',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -1970,6 +2151,8 @@ const nodes = [
         en: () => '"Tell me what you know about what\'s happening here."',
         ar: () => '"أخبرني ما تعرفه عما يحدث هنا."',
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1977,6 +2160,8 @@ const nodes = [
         en: () => 'Check your own wrist — they mentioned a mark',
         ar: () => 'تحقق من معصمك الخاص — ذكروا علامة',
         next: 'p_mark_meaning',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -1991,6 +2176,7 @@ const nodes = [
 
   {
     id: 'p_other_vs_doctor',
+    fallbackNext: 'p_hiding_together',
     en: (v) =>
       `You tell Dr. ${v.names?.doctorName ?? 'Elias'} about ${v.names?.otherName ?? 'The Other'}.\n\nThe response is measured. Too measured.\n\n"That patient has been presenting with a narrative delusional framework. They believe they are an investigative journalist who was placed here against their will. This is a coherent but false belief system. We've documented it extensively."\n\nA pause.\n\n"It's actually very common for patients in this setting to create alternative narratives about why they're here. It feels more manageable than the truth."\n\nTwo people telling you two different stories. One has a medical degree. One has a press credential.`,
     ar: (v) =>
@@ -2001,6 +2187,8 @@ const nodes = [
         en: (v) => `Believe ${v.names?.otherName ?? 'The Other'}`,
         ar: (v) => `صدّق ${v.names?.otherName ?? 'الآخر'}`,
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 2 },
       },
       {
@@ -2008,6 +2196,8 @@ const nodes = [
         en: (v) => `Believe Dr. ${v.names?.doctorName ?? 'Elias'}`,
         ar: (v) => `صدّق الدكتور ${v.names?.doctorName ?? 'إلياس'}`,
         next: 'p_compliance_path',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 2, realityScore: -1 },
       },
       {
@@ -2015,6 +2205,8 @@ const nodes = [
         en: () => 'Trust neither. Investigate room 412.',
         ar: () => 'لا تصدّق أيًا منهما. حقق في الغرفة 412.',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 3 },
       },
       {
@@ -2022,6 +2214,8 @@ const nodes = [
         en: () => 'Ask for verifiable facts from both',
         ar: () => 'اطلب حقائق قابلة للتحقق من كليهما',
         next: 'p_files_reveal',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
     ],
@@ -2029,6 +2223,7 @@ const nodes = [
 
   {
     id: 'p_hiding_together',
+    fallbackNext: 'p_private_record',
     en: (v) =>
       `You and ${v.names?.otherName ?? 'The Other'} press against the wall in a supply closet while footsteps pass.\n\nThey are breathing steadily. You are not.\n\n"Breathe," they whisper. "Slowly."\n\nThe footsteps pass.\n\nWhen the corridor is clear, they look at you: "Tomorrow night. The keypad. 1114. It's the program initiation date. I found it in a maintenance log."`,
     ar: (v) =>
@@ -2039,6 +2234,8 @@ const nodes = [
         en: () => 'Try room 412 now while the corridor is clear',
         ar: () => 'جرّب الغرفة 412 الآن بينما الممر صافٍ',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, memories: 1 },
       },
       {
@@ -2046,6 +2243,8 @@ const nodes = [
         en: () => 'Tomorrow night — follow their plan',
         ar: () => 'غدًا ليلًا — اتبع خطتهم',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2053,6 +2252,8 @@ const nodes = [
         en: () => '"How did you find the initiation date? Tell me everything you know."',
         ar: () => '"كيف وجدت تاريخ الانطلاق؟ أخبرني بكل ما تعرفه."',
         next: 'p_other_revelation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1, memories: 1 },
       },
       {
@@ -2060,6 +2261,8 @@ const nodes = [
         en: () => 'Back to your room — you\'re not sure you trust this plan',
         ar: () => 'ارجع إلى غرفتك — لست متأكدًا من الثقة بهذه الخطة',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -2067,6 +2270,7 @@ const nodes = [
 
   {
     id: 'p_private_record',
+    fallbackNext: 'p_nurse_summoned',
     en: () =>
       `You find a pen — one they missed when they cleared your room — and begin writing on the inside of your pillowcase where the fabric is white enough and the pen dark enough.\n\nYou write everything you know. Every inconsistency. Every observation.\n\nThe list grows. By the time you stop, you have fourteen items.\n\nYou look at the list.\n\nFourteen items of specific, detailed, consistent anomalies from a person who ostensibly has no memory of basic biographical information.\n\nSomeone who can build a case but can't remember their name.`,
     ar: () =>
@@ -2077,6 +2281,8 @@ const nodes = [
         en: () => 'Find room 412 — the answers must be there',
         ar: () => 'اجد الغرفة 412 — الإجابات يجب أن تكون هناك',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -2084,6 +2290,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} — show them the list`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} — أرهم القائمة`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -2094,6 +2302,8 @@ const nodes = [
         en: (v) => `Show the list to Dr. ${v.names?.doctorName ?? 'Elias'}`,
         ar: (v) => `أرِ القائمة للدكتور ${v.names?.doctorName ?? 'إلياس'}`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, trust: -1 },
       },
       {
@@ -2101,6 +2311,8 @@ const nodes = [
         en: () => 'Keep the list safe and keep observing',
         ar: () => 'ابقِ القائمة آمنة واستمر في الملاحظة',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -2108,6 +2320,7 @@ const nodes = [
 
   {
     id: 'p_nurse_summoned',
+    fallbackNext: 'p_watched_confrontation',
     en: (v) =>
       `The nurse who comes is not the quiet medication nurse. This one is larger, competent-looking, with an expression of measured concern.\n\n"Can't sleep?" they ask.\n\n"Someone was at my door." A pause. "Did you see anyone in the corridor just now?"\n\nThey look left. Look right. "No one. Just me."\n\nThey say this immediately. Without actually taking time to look.`,
     ar: (v) =>
@@ -2118,6 +2331,8 @@ const nodes = [
         en: () => '"You didn\'t actually look. Check again."',
         ar: () => '"لم تنظر فعليًا. تحقق مجددًا."',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1, trust: -1 },
       },
       {
@@ -2125,6 +2340,8 @@ const nodes = [
         en: () => 'Accept this and go back to sleep',
         ar: () => 'اقبل هذا وارجع للنوم',
         next: 'p_morning_two',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -2132,6 +2349,8 @@ const nodes = [
         en: () => 'Say you\'re fine — but note what just happened',
         ar: () => 'قل إنك بخير — لكن سجّل ما حدث للتو',
         next: 'p_private_record',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -2139,6 +2358,8 @@ const nodes = [
         en: () => 'Step into the corridor yourself — look both ways',
         ar: () => 'ادخل الممر بنفسك — انظر في كلا الاتجاهين',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
     ],
@@ -2146,6 +2367,7 @@ const nodes = [
 
   {
     id: 'p_watched_confrontation',
+    fallbackNext: 'p_watched_observation',
     en: (v) =>
       `Dr. ${v.names?.doctorName ?? 'Elias'} says they fell asleep in the chair. "I often work late. I was reviewing notes." A pause. "I apologize if it disturbed you."\n\nThey were reviewing notes. In the dark. Without reading glasses. Without a notepad.\n\nThe session that follows is gentle. They ask about dreams. They don't mention the watching.`,
     ar: (v) =>
@@ -2156,6 +2378,8 @@ const nodes = [
         en: () => 'Push back — document this in your private record',
         ar: () => 'ادفع للخلف — وثّق هذا في سجلك الخاص',
         next: 'p_private_record',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 1 },
       },
       {
@@ -2163,6 +2387,8 @@ const nodes = [
         en: () => 'Tell them about the dream — the hallway, the nameplate',
         ar: () => 'أخبرهم عن الحلم — الممر، لافتة الاسم',
         next: 'p_fragment_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 1, trust: 1 },
       },
       {
@@ -2170,6 +2396,8 @@ const nodes = [
         en: () => 'Accept the apology and cooperate',
         ar: () => 'اقبل الاعتذار وتعاون',
         next: 'p_first_session',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 2 },
       },
       {
@@ -2177,6 +2405,8 @@ const nodes = [
         en: () => 'Take the medication — you need real sleep',
         ar: () => 'خذ الدواء — تحتاج نومًا حقيقيًا',
         next: 'p_medicated',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, medicationTaken: 1 },
       },
     ],
@@ -2194,6 +2424,8 @@ const nodes = [
         en: () => 'Confront Dr. Elias about this in the morning',
         ar: () => 'واجه الدكتور بهذا في الصباح',
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2, trust: -2 },
       },
       {
@@ -2201,6 +2433,8 @@ const nodes = [
         en: () => 'Document this — evidence',
         ar: () => 'وثّق هذا — دليل',
         next: 'p_private_record',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -2208,6 +2442,8 @@ const nodes = [
         en: () => 'Now — go to room 412 while the corridor is clear',
         ar: () => 'الآن — اذهب للغرفة 412 بينما الممر صافٍ',
         next: 'p_midnight_corridor',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { realityScore: 2 },
       },
       {
@@ -2222,6 +2458,7 @@ const nodes = [
 
   {
     id: 'p_dream_memory',
+    fallbackNext: 'p_researcher_reveal',
     en: () =>
       `You focus on the dream. The hallway. The numbered doors. The nameplate at the end.\n\nYou remember more now: the nameplate has a university logo in the corner. Institutional. Research-grade.\n\nYou were walking toward it from the other end. Not visiting. Returning. Like someone who belongs there walking back to their desk.\n\nOne more detail: in your hand, as you walk, you are carrying a coffee cup. Not from a vending machine. From a specific coffee shop. You can feel the texture of the cup.\n\nYou LIVED near this place, or frequently went there. This was routine.`,
     ar: () =>
@@ -2232,6 +2469,8 @@ const nodes = [
         en: () => 'Room 412 — it\'s a research office. Find it.',
         ar: () => 'الغرفة 412 — إنها مكتب بحثي. اجده.',
         next: 'p_room412',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2, realityScore: 2 },
       },
       {
@@ -2239,6 +2478,8 @@ const nodes = [
         en: () => 'You are a professional. A researcher. Process this.',
         ar: () => 'أنت متخصص. باحث. عالج هذا.',
         next: 'p_professional_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { memories: 2 },
       },
       {
@@ -2246,6 +2487,8 @@ const nodes = [
         en: (v) => `Tell Dr. ${v.names?.doctorName ?? 'Elias'} — share the memory`,
         ar: (v) => `أخبر الدكتور ${v.names?.doctorName ?? 'إلياس'} — شارك الذكرى`,
         next: 'p_fragment_memory',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1, memories: 1 },
       },
       {
@@ -2253,6 +2496,8 @@ const nodes = [
         en: (v) => `Find ${v.names?.otherName ?? 'The Other'} — they said they worked here`,
         ar: (v) => `اجد ${v.names?.otherName ?? 'الآخر'} — قالوا إنهم عملوا هنا`,
         next: 'p_find_other',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !!v.names?.otherName,
         lockedEn: 'Find The Other first',
         lockedAr: 'اجد الآخر أولًا',
@@ -2263,6 +2508,7 @@ const nodes = [
 
   {
     id: 'p_researcher_reveal',
+    fallbackNext: 'p_escape_attempt',
     en: (v) =>
       `You sit with it.\n\nYou were a researcher. Not just at a university. HERE. At St. Adalyn's, in the ARES wing.\n\nYou were the one who designed the thing that is now being used on you.\n\nAnd you put yourself in it. Voluntarily.\n\nWhy?\n\nThe answer forms slowly, like developing film: you saw what you were doing to other people. You needed to know it from the inside. And you needed someone to be able to stop you — even from yourself.`,
     ar: (v) =>
@@ -2273,6 +2519,8 @@ const nodes = [
         en: () => 'You understand everything now. Leave.',
         ar: () => 'أنت تفهم كل شيء الآن. غادر.',
         next: 'p_departure_process',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true, memories: 3 },
       },
       {
@@ -2280,6 +2528,8 @@ const nodes = [
         en: (v) => `But ${v.names?.otherName ?? 'The Other'} — they weren\'t voluntary`,
         ar: (v) => `لكن ${v.names?.otherName ?? 'الآخر'} — لم يتطوعوا`,
         next: 'p_demand_freedom',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true },
       },
       {
@@ -2287,6 +2537,8 @@ const nodes = [
         en: (v) => `Face Dr. ${v.names?.doctorName ?? 'Elias'} with everything`,
         ar: (v) => `واجه الدكتور ${v.names?.doctorName ?? 'إلياس'} بكل شيء`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true, memories: 2 },
       },
       {
@@ -2294,6 +2546,8 @@ const nodes = [
         en: () => 'Sit with the weight. Then leave.',
         ar: () => 'اجلس مع الثقل. ثم غادر.',
         next: 'p_acceptance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { doctorMode: true },
       },
     ],
@@ -2311,6 +2565,8 @@ const nodes = [
         en: () => 'Wait for the authorization — let them call',
         ar: () => 'انتظر التفويض — دعهم يتصلون',
         next: 'p_departure_process',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: 1 },
       },
       {
@@ -2318,6 +2574,8 @@ const nodes = [
         en: () => '"I am leaving voluntarily. This is a voluntary facility."',
         ar: () => '"أنا أغادر طوعيًا. هذه منشأة طوعية."',
         next: 'p_departure_process',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { trust: -1, realityScore: 1 },
       },
       {
@@ -2325,6 +2583,8 @@ const nodes = [
         en: (v) => `Go find Dr. ${v.names?.doctorName ?? 'Elias'} yourself`,
         ar: (v) => `اذهب وأجد الدكتور ${v.names?.doctorName ?? 'إلياس'} بنفسك`,
         next: 'p_doctor_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {

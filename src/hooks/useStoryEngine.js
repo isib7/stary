@@ -16,7 +16,7 @@ import {
 export function useStoryEngine(story, lang) {
   const nodeMap = useRef(buildNodeMap(story.nodes)).current;
 
-  const [vars, setVars] = useState(() => ({ ...story.initialVars, names: {} }));
+  const [vars, setVars] = useState(() => ({ ...story.initialVars, visits: {}, names: {} }));
   const [history, setHistory] = useState([]); // [{node, choiceText}]
   const [currentNodeId, setCurrentNodeId] = useState(story.startNode);
   const [ended, setEnded] = useState(false);
@@ -31,8 +31,17 @@ export function useStoryEngine(story, lang) {
   }, [vars.names]);
 
   const getNodeText = useCallback((node, v = vars) => {
+    const visitCount = v.visits?.[node.id] || 0;
+    const isRevisit = visitCount > 1;
+    
     const raw = node[lang] ?? node['en'] ?? '';
-    const resolved = typeof raw === 'function' ? raw(v) : raw;
+    let resolved = typeof raw === 'function' ? raw(v) : raw;
+
+    if (isRevisit) {
+        const revisitMsg = lang === 'ar' ? 'لقد عدت إلى هنا مجددًا. ' : 'You have returned here again. ';
+        resolved = revisitMsg + resolved;
+    }
+
     return injectNames(resolved);
   }, [lang, injectNames, vars]);
 
@@ -45,6 +54,8 @@ export function useStoryEngine(story, lang) {
   // Navigate to next node, applying effects, recording history
   const commitChoice = useCallback((choice, v) => {
     const newVars = applyEffects(v, choice.effects || {});
+    newVars.visits = newVars.visits || {};
+    newVars.visits[choice.next] = (newVars.visits[choice.next] || 0) + 1;
     const nextNode = nodeMap[choice.next];
 
     const historyEntry = {
@@ -110,7 +121,7 @@ export function useStoryEngine(story, lang) {
   const dismissNaming = useCallback(() => setNamingModal(null), []);
 
   const restart = useCallback(() => {
-    setVars({ ...story.initialVars, names: {} });
+    setVars({ ...story.initialVars, visits: {}, names: {} });
     setHistory([]);
     setCurrentNodeId(story.startNode);
     setEnded(false);
@@ -119,10 +130,47 @@ export function useStoryEngine(story, lang) {
 
   const getAvailableChoices = useCallback(() => {
     if (!currentNode || currentNode.isEnding) return [];
-    return (currentNode.choices || []).map(c => ({
-      ...c,
-      available: isChoiceAvailable(c, vars),
-    }));
+    
+    let renderedChoices = (currentNode.choices || []).map(c => {
+      let available = isChoiceAvailable(c, vars);
+      let disabled = !available;
+      let disabledReason = '';
+      
+      if (c.isBacktrack && available) {
+        const limits = c.maxVisits || 1;
+        const targetVisits = vars.visits?.[c.next] || 0;
+        if (targetVisits >= limits) {
+           disabled = true;
+           disabledReason = 'backtrack';
+        }
+      }
+      
+      return {
+        ...c,
+        available,
+        disabled,
+        disabledReason
+      };
+    });
+    
+    // Check if ALL choices are disabled specifically because of backtracking
+    const allBacktracksDisabled = renderedChoices.length > 0 && 
+      renderedChoices.every(c => c.disabled && (c.disabledReason === 'backtrack' || !c.available));
+      
+    // Additional constraint: we only inject if there are NO valid forward paths. 
+    // If a node was purely backwards and we blocked it, or blocked by items AND backwards, we jump forward.
+    if (allBacktracksDisabled && currentNode.fallbackNext) {
+      renderedChoices.push({
+        id: 'fallback_progress_' + currentNode.id,
+        en: () => 'Move forward',
+        ar: () => 'متابعة التقدم',
+        next: currentNode.fallbackNext,
+        available: true,
+        disabled: false
+      });
+    }
+
+    return renderedChoices;
   }, [currentNode, vars]);
 
   return {

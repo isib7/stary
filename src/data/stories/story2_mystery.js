@@ -242,6 +242,8 @@ const nodes = [
         en: () => 'Skip suspects for now — go to the crime scene',
         ar: () => 'تجاوز المشتبه بهم الآن — اذهب إلى مسرح الجريمة',
         next: 'm_school_visit',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -507,6 +509,8 @@ const nodes = [
         en: () => 'His crew — crack the alibi now',
         ar: () => 'طاقمه — اكسر الحجة الآن',
         next: 'm_crew_alibi',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -545,6 +549,8 @@ const nodes = [
         en: () => 'Get solid proof first — the crew testimony — then move',
         ar: () => 'احصل على دليل قاطع أولًا — شهادة الطاقم — ثم تحرك',
         next: 'm_crew_alibi',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, derekSuspected: true, waryOfSheriff: true },
       },
       {
@@ -576,6 +582,8 @@ const nodes = [
         en: () => 'Get his alibi cracked — interview the crew',
         ar: () => 'اكسر حجته — استجوب الطاقم',
         next: 'm_crew_alibi',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, derekSuspected: true },
       },
       {
@@ -691,6 +699,8 @@ const nodes = [
         en: () => 'Warren appears innocent — clear him and focus on Derek',
         ar: () => 'وارن يبدو بريئًا — أبرئه وركز على ديريك',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { suspectsExamined: 1, warrenCleared: true },
       },
       {
@@ -753,6 +763,8 @@ const nodes = [
         en: () => 'Derek is still the priority — go find him',
         ar: () => 'ديريك لا يزال الأولوية — اذهب لإيجاده',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, warrenCleared: true },
       },
     ],
@@ -792,6 +804,8 @@ const nodes = [
         en: () => 'Leave Kelvin for now — find more evidence first',
         ar: () => 'اترك كيلفين الآن — اجد مزيدًا من الأدلة أولًا',
         next: 'm_suspects_overview',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -948,6 +962,8 @@ const nodes = [
         en: () => 'Find Derek first — keep him from destroying evidence',
         ar: () => 'اجد ديريك أولًا — ابقه من تدمير الأدلة',
         next: 'm_derek_confronted',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -955,6 +971,8 @@ const nodes = [
         en: () => 'Check on Kelvin Marsh — the state needs to know he may be innocent',
         ar: () => 'تحقق من كيلفين مارش — الولاية تحتاج معرفة أنه قد يكون بريئًا',
         next: 'm_kelvin_lead',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1032,6 +1050,8 @@ const nodes = [
         en: () => 'Could the "man\'s prints" be Kelvin Marsh — who helped her?',
         ar: () => 'هل يمكن أن تكون "الأقدام الكبيرة" لكيلفين مارش — الذي ساعدها؟',
         next: 'm_kelvin_lead',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
     ],
@@ -1125,6 +1145,8 @@ const nodes = [
         en: () => 'The notebook is evidence — secure it and find Lily',
         ar: () => 'الدفتر دليل — أمّنه واجد ليلى',
         next: 'm_lighthouse_search',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 3, hasNotebook: true },
       },
       {
@@ -1139,6 +1161,8 @@ const nodes = [
         en: () => 'The large footprints — Derek was here — find him first',
         ar: () => 'الأقدام الكبيرة — كان ديريك هنا — اجده أولًا',
         next: 'm_lighthouse_threat',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, hasNotebook: true },
       },
       {
@@ -1163,6 +1187,8 @@ const nodes = [
         en: () => 'Go to the cave now',
         ar: () => 'اذهب إلى الكهف الآن',
         next: 'm_lighthouse_search',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1170,6 +1196,8 @@ const nodes = [
         en: () => 'Get Merry to take you by boat to the cave entrance',
         ar: () => 'اجعل ميري تأخذك بالقارب إلى مدخل الكهف',
         next: 'm_lighthouse_by_boat',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { safePath: true },
       },
       {
@@ -1177,6 +1205,8 @@ const nodes = [
         en: () => 'Derek\'s boat — is it near the lighthouse?',
         ar: () => 'قارب ديريك — هل هو بالقرب من المنارة؟',
         next: 'm_lighthouse_threat',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { race: true },
       },
       {
@@ -1240,6 +1270,8 @@ const nodes = [
         en: () => 'Step out and identify yourself — remove his leverage',
         ar: () => 'تقدم وعرّف بنفسك — أزل نفوذه',
         next: 'm_confrontation_dangerous',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -1254,6 +1286,8 @@ const nodes = [
         en: () => 'Call out Derek\'s name loudly from cover — startle him',
         ar: () => 'نادِ اسم ديريك بقوة من مخبئك — أفزعه',
         next: 'm_confrontation_dangerous',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0 },
       },
       {
@@ -1432,6 +1466,8 @@ const nodes = [
         en: () => 'Find Merry — she has information',
         ar: () => 'اجد ميري — لديها معلومات',
         next: 'm_dock_inquiry',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1439,6 +1475,8 @@ const nodes = [
         en: () => 'Continue to the school — see what else the route shows',
         ar: () => 'واصل إلى المدرسة — اعرف ما يكشفه المسار أكثر',
         next: 'm_school_visit',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1453,6 +1491,8 @@ const nodes = [
         en: () => 'Report this to the sheriff first',
         ar: () => 'أبلغ الشريف بهذا أولًا',
         next: 'm_sheriff_meet',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1460,6 +1500,7 @@ const nodes = [
 
   {
     id: 'm_shopkeeper_interview',
+    fallbackNext: 'm_teacher_interview',
     en: () =>
       `The shopkeeper — an elderly man who sells fishing supplies — speaks without prompting.\n\n"She came in. Bought three energy bars. Paid in coins. Exact change — she'd counted it out." He pauses. "A seven-year-old counting exact change. I should have asked."\n\n"She went directly to the docks after. A man was waiting — not from here. Thin, tanned. He helped her with her bag. They walked to the water taxi."`,
     ar: () =>
@@ -1470,6 +1511,8 @@ const nodes = [
         en: () => 'That\'s Kelvin Marsh — find him',
         ar: () => 'ذاك هو كيلفين مارش — اجده',
         next: 'm_kelvin_lead',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1477,6 +1520,8 @@ const nodes = [
         en: () => 'Go to the docks — find the water taxi',
         ar: () => 'اذهب إلى الأرصفة — اجد التاكسي المائي',
         next: 'm_dock_inquiry',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1484,6 +1529,8 @@ const nodes = [
         en: () => 'She didn\'t take the taxi — trace where she went next',
         ar: () => 'لم تأخذ التاكسي — تتبع أين ذهبت بعدها',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1491,6 +1538,8 @@ const nodes = [
         en: () => 'Was Derek anywhere near the docks then?',
         ar: () => 'هل كان ديريك بالقرب من الأرصفة في ذلك الوقت؟',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
     ],
@@ -1498,6 +1547,7 @@ const nodes = [
 
   {
     id: 'm_teacher_interview',
+    fallbackNext: 'm_side_gate',
     en: () =>
       `Lily's homeroom teacher, Mr. Crane, has been replaying the morning for three days.\n\n"She sat by the window. That was unusual. She drew something — a lighthouse. I thought it was just a drawing.\n\n"Before the other kids arrived, she went to Mr. Hollis's classroom. Five minutes, maybe. When she came back she was calmer. Like she'd decided something.\n\n"She left before first bell. I saw her through the window, across the yard. She had her backpack. She didn't run. She walked purposefully."`,
     ar: () =>
@@ -1508,6 +1558,8 @@ const nodes = [
         en: () => 'Warren Hollis — she visited him that morning. Find out what he said.',
         ar: () => 'وارن هوليس — زارته ذلك الصباح. اعرف ما قاله.',
         next: 'm_warren_hollis',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1515,6 +1567,8 @@ const nodes = [
         en: () => 'Check the route she walked — trace it purposefully',
         ar: () => 'تحقق من الطريق الذي سلكته — تتبعه باتجاه',
         next: 'm_route_walk',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1522,6 +1576,8 @@ const nodes = [
         en: () => 'The lighthouse drawing — does it still exist?',
         ar: () => 'رسم المنارة — هل لا يزال موجودًا؟',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1529,6 +1585,8 @@ const nodes = [
         en: () => 'Her backpack — it\'s still at school. Examine it.',
         ar: () => 'حقيبتها — لا تزال في المدرسة. افحصها.',
         next: 'm_lily_note',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
     ],
@@ -1536,6 +1594,7 @@ const nodes = [
 
   {
     id: 'm_side_gate',
+    fallbackNext: 'm_classmates',
     en: () =>
       `The side gate has a simple latch. A child could open it easily. The security camera that should cover it has been rotated away — deliberately. Recently.\n\nSomeone rotated that camera. Someone with access to the school's security system.\n\nA maintenance log on the wall shows the last access: "Camera reorientation — exterior maintenance." Signed three weeks ago by a contractor.\n\nThe name on the signature: D. Vance.`,
     ar: () =>
@@ -1546,6 +1605,8 @@ const nodes = [
         en: () => 'Derek Vance knew she would use this gate — he prepared',
         ar: () => 'ديريك فانس كان يعلم أنها ستستخدم هذه البوابة — استعد',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 3, derekSuspected: true },
       },
       {
@@ -1553,6 +1614,8 @@ const nodes = [
         en: () => 'Get to the docks — find who knows what about Derek',
         ar: () => 'اذهب إلى الأرصفة — اجد من يعرف ماذا عن ديريك',
         next: 'm_dock_inquiry',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, derekSuspected: true },
       },
       {
@@ -1560,6 +1623,8 @@ const nodes = [
         en: () => 'Take this to the sheriff — hard evidence',
         ar: () => 'خذ هذا للشريف — دليل قاطع',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, derekSuspected: true },
       },
       {
@@ -1567,6 +1632,8 @@ const nodes = [
         en: () => 'Find Lily first — she may be running from Derek',
         ar: () => 'اجد ليلى أولًا — قد تكون تفر من ديريك',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, derekSuspected: true },
       },
     ],
@@ -1574,6 +1641,7 @@ const nodes = [
 
   {
     id: 'm_classmates',
+    fallbackNext: 'm_complaint_check',
     en: () =>
       `Two of Lily's classmates, interviewed with teacher present:\n\nFirst: "Lily had a secret. She said she was going to be safe soon. I thought she meant summer vacation."\n\nSecond: "She gave me her stack of good erasers to keep before she left. She said she wouldn't need them anymore. I thought she was being dramatic."`,
     ar: () =>
@@ -1584,6 +1652,8 @@ const nodes = [
         en: () => 'Lily had a planned departure — find her route',
         ar: () => 'كان لدى ليلى مغادرة مخططة — اجد مسارها',
         next: 'm_route_walk',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1591,6 +1661,8 @@ const nodes = [
         en: () => 'She left something in her backpack — examine it',
         ar: () => 'تركت شيئًا في حقيبتها — افحصها',
         next: 'm_lily_note',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1598,6 +1670,8 @@ const nodes = [
         en: () => 'Talk to the art teacher she trusted',
         ar: () => 'تحدث مع معلم الفن الذي وثقت به',
         next: 'm_warren_hollis',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1605,6 +1679,8 @@ const nodes = [
         en: () => 'The harbor — she was seen heading there',
         ar: () => 'الميناء — شُوهدت متجهة إلى هناك',
         next: 'm_dock_inquiry',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
     ],
@@ -1612,6 +1688,7 @@ const nodes = [
 
   {
     id: 'm_complaint_check',
+    fallbackNext: 'm_boat_captain',
     en: () =>
       `You pull the complaint file. A parent, Mr. Gareth, filed against Warren Hollis for "inappropriate physical contact with students."\n\nWarren's statement: He placed a hand on a crying student's shoulder to comfort her. Three witnesses confirm this.\n\nGareth's child was not the one being comforted.\n\nGareth is Derek Vance's fishing partner. He filed this complaint one week after Warren told Lily that "words are evidence."\n\nThe complaint wasn't about Warren. It was a warning. Stay away from the Harrow children.`,
     ar: () =>
@@ -1622,6 +1699,8 @@ const nodes = [
         en: () => 'Derek orchestrated the complaint — this proves his knowledge',
         ar: () => 'ديريك دبّر الشكوى — هذا يثبت علمه',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, derekSuspected: true },
       },
       {
@@ -1629,6 +1708,8 @@ const nodes = [
         en: () => 'Tell Warren — he deserves to know what the complaint was really about',
         ar: () => 'أخبر وارن — يستحق معرفة ما كانت الشكوى فعليًا عنه',
         next: 'm_warren_hollis',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, warrenCleared: true },
       },
       {
@@ -1636,6 +1717,8 @@ const nodes = [
         en: () => 'Enough from this angle — go to the lighthouse',
         ar: () => 'يكفي من هذه الزاوية — اذهب إلى المنارة',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, derekSuspected: true },
       },
       {
@@ -1643,6 +1726,8 @@ const nodes = [
         en: () => 'The sheriff knew about this complaint and dismissed it — confront him',
         ar: () => 'الشريف كان يعرف عن الشكوى ورفضها — واجهه',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, waryOfSheriff: true },
       },
     ],
@@ -1650,6 +1735,7 @@ const nodes = [
 
   {
     id: 'm_boat_captain',
+    fallbackNext: 'm_note_shown_parents',
     en: () =>
       `You ask around. Three boat captains operate out of Greyvale's dock. One is Derek Vance. Another is Merry Reed. The third — a young man named Caspar — runs a quiet charter service.\n\nCaspar confirms: "A man came to me three weeks ago. Tall. Not local. Asked if I'd take a child across without papers if the situation required it. I said no."\n\nKelvin Marsh tried the official charter first. Was turned down. Then — or someone else — found another way.`,
     ar: () =>
@@ -1660,6 +1746,8 @@ const nodes = [
         en: () => 'Find Kelvin Marsh — he\'s been trying to help Lily',
         ar: () => 'اجد كيلفين مارش — كان يحاول مساعدة ليلى',
         next: 'm_kelvin_lead',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1667,6 +1755,8 @@ const nodes = [
         en: () => 'Merry — she runs the other boat service. Did she help?',
         ar: () => 'ميري — تدير خدمة القوارب الأخرى. هل ساعدت؟',
         next: 'm_dock_inquiry',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1674,6 +1764,8 @@ const nodes = [
         en: () => 'Lily didn\'t need a boat — she\'s at the lighthouse',
         ar: () => 'ليلى لم تحتج قاربًا — إنها في المنارة',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -1681,6 +1773,8 @@ const nodes = [
         en: () => 'Derek runs a boat — was HE Lily\'s transportation?',
         ar: () => 'ديريك يدير قاربًا — هل كان هو وسيلة ليلى؟',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { derekSuspected: true },
       },
     ],
@@ -1698,6 +1792,8 @@ const nodes = [
         en: () => 'Find Derek immediately',
         ar: () => 'اجد ديريك فورًا',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, derekSuspected: true },
       },
       {
@@ -1705,6 +1801,8 @@ const nodes = [
         en: () => 'The father needs to cooperate — take him to the sheriff',
         ar: () => 'الأب بحاجة للتعاون — خذه إلى الشريف',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, trust: 1 },
       },
       {
@@ -1712,6 +1810,8 @@ const nodes = [
         en: () => 'Lily — focus on finding her',
         ar: () => 'ليلى — ركز على إيجادها',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1743,6 +1843,8 @@ const nodes = [
         en: () => 'Leave them — find Lily',
         ar: () => 'اتركهم — اجد ليلى',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
       {
@@ -1750,6 +1852,8 @@ const nodes = [
         en: () => 'Take this statement to the sheriff',
         ar: () => 'خذ هذه الإفادة للشريف',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1757,6 +1861,8 @@ const nodes = [
         en: () => 'The father can help — can he call Derek directly?',
         ar: () => 'الأب يستطيع المساعدة — هل يستطيع الاتصال بديريك مباشرة؟',
         next: 'm_derek_vance',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1, trust: 1 },
       },
     ],
@@ -1774,6 +1880,8 @@ const nodes = [
         en: () => 'Kelvin is being held — release him. Find where Lily actually went.',
         ar: () => 'كيلفين محتجز — أطلق سراحه. اجد أين ذهبت ليلى فعليًا.',
         next: 'm_kelvin_reveal',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, kelvinCleared: true },
       },
       {
@@ -1781,6 +1889,8 @@ const nodes = [
         en: () => 'She didn\'t take the ferry all the way — go to the lighthouse',
         ar: () => 'لم تأخذ العبارة حتى النهاية — اذهب إلى المنارة',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2 },
       },
       {
@@ -1795,6 +1905,8 @@ const nodes = [
         en: () => 'Get official backup — escalate everything now',
         ar: () => 'احصل على دعم رسمي — صعّد كل شيء الآن',
         next: 'm_state_escalation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 1 },
       },
     ],
@@ -1812,6 +1924,8 @@ const nodes = [
         en: () => 'She didn\'t reach the mainland — find her at the lighthouse',
         ar: () => 'لم تصل للبر الرئيسي — اجدها في المنارة',
         next: 'm_lighthouse',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { clues: 2, kelvinCleared: true },
       },
       {
@@ -1826,6 +1940,8 @@ const nodes = [
         en: () => 'Get Merry\'s boat — reach the lighthouse by sea',
         ar: () => 'خذ قارب ميري — اصل للمنارة بالبحر',
         next: 'm_lighthouse_by_boat',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { safePath: true, kelvinCleared: true },
       },
       {
@@ -1833,6 +1949,8 @@ const nodes = [
         en: () => 'Brief the sheriff — even he can\'t ignore this now',
         ar: () => 'أبلغ الشريف — حتى هو لا يستطيع تجاهل هذا الآن',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { kelvinCleared: true },
       },
     ],
@@ -1872,6 +1990,8 @@ const nodes = [
         en: () => 'Brief the sheriff one last time — see which side he chooses',
         ar: () => 'أبلغ الشريف مرة أخيرة — اعرف أي جانب يختار',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1903,6 +2023,8 @@ const nodes = [
         en: () => 'Confront the sheriff while you have leverage',
         ar: () => 'واجه الشريف بينما لديك نفوذ',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { waryOfSheriff: true },
       },
       {
@@ -1910,6 +2032,8 @@ const nodes = [
         en: () => 'Search the lighthouse for any remaining evidence',
         ar: () => 'فتش المنارة بحثًا عن أي دليل متبقٍ',
         next: 'm_lily_backpack',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -1941,6 +2065,8 @@ const nodes = [
         en: () => 'The sheriff needs to answer for his complicity',
         ar: () => 'الشريف بحاجة للإجابة عن تواطئه',
         next: 'm_sheriff_confrontation',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { waryOfSheriff: true },
       },
       {
@@ -2072,6 +2198,8 @@ const nodes = [
         en: () => 'Listen to everything she has to tell you',
         ar: () => 'استمع لكل ما لديها لتخبرك به',
         next: 'm_lily_secret_ending',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2079,6 +2207,8 @@ const nodes = [
         en: () => 'You already understand — proceed to close the case',
         ar: () => 'أنت تفهم بالفعل — تابع لإغلاق القضية',
         next: 'm_ending_success',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2086,6 +2216,8 @@ const nodes = [
         en: () => 'Deal with Derek first',
         ar: () => 'تعامل مع ديريك أولًا',
         next: 'm_derek_arrest',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2093,6 +2225,8 @@ const nodes = [
         en: () => 'File the systemic report',
         ar: () => 'قدّم التقرير المنهجي',
         next: 'm_ending_secret',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],

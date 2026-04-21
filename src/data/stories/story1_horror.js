@@ -102,6 +102,8 @@ const nodes = [
         en: () => 'Enter the house',
         ar: () => 'ادخل المنزل',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -141,6 +143,8 @@ const nodes = [
         en: () => 'Pocket the card and enter the house cautiously',
         ar: () => 'ضع البطاقة في جيبك وادخل المنزل بحذر',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1, knowsWarning: true },
       },
       {
@@ -187,6 +191,8 @@ const nodes = [
         en: () => 'Go inside the house now — you\'ve seen enough',
         ar: () => 'ادخل المنزل الآن — رأيت ما يكفي',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -219,6 +225,8 @@ const nodes = [
         en: () => 'Enter the house in the morning light',
         ar: () => 'ادخل المنزل في ضوء الصباح',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, sanity: -1 },
       },
       {
@@ -233,6 +241,8 @@ const nodes = [
         en: () => 'Walk the perimeter before entering',
         ar: () => 'تجول حول المحيط قبل الدخول',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -258,6 +268,8 @@ const nodes = [
         en: () => 'Enter the house with this knowledge',
         ar: () => 'ادخل المنزل وأنت تحمل هذه المعرفة',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, knowsWarning: true },
       },
       {
@@ -272,6 +284,8 @@ const nodes = [
         en: () => 'This is too much — sleep in the car tonight',
         ar: () => 'هذا أكثر مما تحتمل — نم في السيارة الليلة',
         next: 'h_sleep_car',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -279,6 +293,8 @@ const nodes = [
         en: () => 'Check the perimeter with this warning in mind',
         ar: () => 'تفقد المحيط مع وضع هذا التحذير في الاعتبار',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, knowsWarning: true },
       },
     ],
@@ -297,6 +313,8 @@ const nodes = [
         en: () => 'Enter the house armed with this knowledge',
         ar: () => 'ادخل المنزل مزوّدًا بهذه المعرفة',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1, knowsWarning: true, knowsIron: true, readJournal: true },
       },
       {
@@ -318,6 +336,8 @@ const nodes = [
         en: () => 'Decide to call yourself a different name when inside',
         ar: () => 'قرر أن تسمي نفسك باسم مختلف عند الدخول',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0, usedFalseName: true, knowsWarning: true, readJournal: true },
       },
     ],
@@ -336,6 +356,8 @@ const nodes = [
         en: () => 'Enter the house with the tire iron',
         ar: () => 'ادخل المنزل وبيدك قضيب الإطار',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasIron: true, fear: 0 },
       },
       {
@@ -343,6 +365,8 @@ const nodes = [
         en: () => 'Check the perimeter first with the iron ready',
         ar: () => 'تفقد المحيط أولًا والقضيب جاهز',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasIron: true, fear: 1 },
       },
       {
@@ -357,6 +381,8 @@ const nodes = [
         en: () => 'Sleep in the car with the iron close, enter at dawn',
         ar: () => 'نم في السيارة مع بقاء القضيب قريبًا، ادخل عند الفجر',
         next: 'h_sleep_car',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasIron: true, fear: 0 },
       },
     ],
@@ -396,6 +422,8 @@ const nodes = [
         en: () => 'Leave the study and explore elsewhere',
         ar: () => 'اغادر الدراسة واستكشف في مكان آخر',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0 },
       },
     ],
@@ -474,6 +502,8 @@ const nodes = [
         en: () => 'Close the drawer and go back to the foyer',
         ar: () => 'أغلق الدرج وارجع إلى الردهة',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasRedKey: true, fear: 0 },
       },
     ],
@@ -492,6 +522,8 @@ const nodes = [
         en: () => 'Take the iron paperweight and the note',
         ar: () => 'خذ ثقل الأوراق الحديدي والملاحظة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasIron: true, knowsSecret: true, fear: 0 },
       },
       {
@@ -499,6 +531,8 @@ const nodes = [
         en: () => 'Check the locked desk drawer — maybe the invitation is there',
         ar: () => 'تحقق من الدرج المقفل — ربما الدعوة بداخله',
         next: 'h_drawer_open',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsSecret: true, fear: 1 },
       },
       {
@@ -553,6 +587,8 @@ const nodes = [
         en: () => 'Retreat quietly back downstairs',
         ar: () => 'تراجع بهدوء نحو الأسفل',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
     ],
@@ -665,6 +701,8 @@ const nodes = [
         en: () => 'Use the iron — now',
         ar: () => 'استخدم الحديد — الآن',
         next: 'h_iron_works',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasIron,
         lockedEn: 'You have no iron',
         lockedAr: 'لا يوجد معك حديد',
@@ -707,6 +745,8 @@ const nodes = [
         en: () => 'Get back to the study — find that invitation',
         ar: () => 'ارجع إلى الدراسة — اجد تلك الدعوة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -753,6 +793,8 @@ const nodes = [
         en: () => 'Hide in the study and wait',
         ar: () => 'الاختباء في الدراسة والانتظار',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
     ],
@@ -785,6 +827,8 @@ const nodes = [
         en: () => 'Reach for the iron — it might still be in your pocket',
         ar: () => 'ابحث عن الحديد — ربما لا يزال في جيبك',
         next: 'h_iron_works',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasIron,
         lockedEn: 'You have no iron to reach for',
         lockedAr: 'ليس لديك حديد',
@@ -833,6 +877,8 @@ const nodes = [
         en: () => 'Back to the study — read everything you missed',
         ar: () => 'ارجع إلى الدراسة — اقرأ كل ما فاتك',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0 },
       },
     ],
@@ -865,6 +911,8 @@ const nodes = [
         en: () => 'Study — if you end this, you end it properly',
         ar: () => 'الدراسة — إذا أردت إنهاء هذا، أنهه بشكل صحيح',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -943,6 +991,8 @@ const nodes = [
         en: () => 'Retreat silently back downstairs',
         ar: () => 'تراجع بهدوء للأسفل',
         next: 'h_kitchen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -950,6 +1000,8 @@ const nodes = [
         en: () => 'Confront it with the iron while it\'s not looking',
         ar: () => 'واجهه بالحديد وهو لا ينظر',
         next: 'h_iron_works',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasIron,
         lockedEn: 'You need iron to attempt this',
         lockedAr: 'تحتاج حديدًا للمحاولة',
@@ -1055,6 +1107,8 @@ const nodes = [
         en: () => 'Follow the instructions — find the key and the note',
         ar: () => 'اتبع التعليمات — اجد المفتاح والملاحظة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1, heardsAunt: true },
       },
       {
@@ -1111,6 +1165,8 @@ const nodes = [
         en: () => 'Go get the key from the desk first',
         ar: () => 'اذهب واحصل على المفتاح من المكتب أولًا',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { heardsAunt: true, fear: 0 },
       },
       {
@@ -1143,6 +1199,8 @@ const nodes = [
         en: () => 'Get the red key from the study first',
         ar: () => 'احصل أولًا على المفتاح الأحمر من الدراسة',
         next: 'h_drawer_open',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsInvitation: true, fear: 0 },
       },
       {
@@ -1150,6 +1208,8 @@ const nodes = [
         en: () => 'Find iron first — for protection',
         ar: () => 'اجد الحديد أولًا — للحماية',
         next: 'h_bookshelves',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsInvitation: true, fear: 0 },
       },
       {
@@ -1267,6 +1327,8 @@ const nodes = [
         en: () => 'Go open the red room right now',
         ar: () => 'اذهب وافتح الغرفة الحمراء الآن',
         next: 'h_red_door_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -1299,6 +1361,8 @@ const nodes = [
         en: () => 'Go to the red room — look in the mirror',
         ar: () => 'اذهب إلى الغرفة الحمراء — انظر في المرآة',
         next: 'h_red_door_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsSecret: true, knowsInvitation: true, hasRedKey: true, fear: 0 },
       },
       {
@@ -1338,6 +1402,8 @@ const nodes = [
         en: () => 'Go look in the mirror yourself — now',
         ar: () => 'اذهب وانظر في المرآة بنفسك — الآن',
         next: 'h_red_door_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsSecret: true, hasRedKey: true },
       },
       {
@@ -1370,6 +1436,8 @@ const nodes = [
         en: () => 'Enter the house — it\'s daylight now',
         ar: () => 'ادخل المنزل — الآن نور النهار',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -1377,6 +1445,8 @@ const nodes = [
         en: () => 'Follow the tracks into the tree line',
         ar: () => 'تتبع الآثار نحو حافة الأشجار',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 3 },
       },
       {
@@ -1384,6 +1454,8 @@ const nodes = [
         en: () => 'Check your car carefully before entering',
         ar: () => 'افحص سيارتك بعناية قبل الدخول',
         next: 'h_car_search',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -1415,6 +1487,8 @@ const nodes = [
         en: () => 'Get the lamp first before descending',
         ar: () => 'احصل على المصباح أولًا قبل النزول',
         next: 'h_aunt_help',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -1422,6 +1496,8 @@ const nodes = [
         en: () => 'Close the doors and go in through the house instead',
         ar: () => 'أغلق الأبواب وادخل من خلال المنزل',
         next: 'h_kitchen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -1429,6 +1505,8 @@ const nodes = [
         en: () => 'Understand what you\'re dealing with first — go to the study',
         ar: () => 'افهم ما تتعامل معه أولًا — اذهب إلى الدراسة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
     ],
@@ -1453,6 +1531,8 @@ const nodes = [
         en: () => 'Get something iron first — for protection',
         ar: () => 'احصل على شيء من الحديد أولًا — للحماية',
         next: 'h_bookshelves',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsInvitation: true, fear: 0 },
       },
       {
@@ -1460,6 +1540,8 @@ const nodes = [
         en: () => 'Need light too — ask the voice in the red door for help',
         ar: () => 'تحتاج ضوءًا أيضًا — اسأل الصوت في الباب الأحمر عن المساعدة',
         next: 'h_red_door_listen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsInvitation: true, fear: 0 },
       },
       {
@@ -1467,6 +1549,8 @@ const nodes = [
         en: () => 'Red room first — open it with the key',
         ar: () => 'الغرفة الحمراء أولًا — افتحها بالمفتاح',
         next: 'h_red_door_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsInvitation: true, fear: 1 },
       },
     ],
@@ -1484,6 +1568,8 @@ const nodes = [
         en: () => 'Accept the invitation — enter',
         ar: () => 'اقبل الدعوة — ادخل',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 3, sanity: -1 },
       },
       {
@@ -1491,6 +1577,8 @@ const nodes = [
         en: () => 'Refuse — step back and go around to the back',
         ar: () => 'ارفض — تراجع واذهب حول الجانب الخلفي',
         next: 'h_cellar_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -1505,6 +1593,8 @@ const nodes = [
         en: () => 'Stand completely still and wait to see what happens',
         ar: () => 'قف ساكنًا تمامًا وانتظر لترى ما سيحدث',
         next: 'h_freeze_works',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
     ],
@@ -1512,6 +1602,7 @@ const nodes = [
 
   {
     id: 'h_redlight_stare',
+    fallbackNext: 'h_bedroom1',
     en: () =>
       `You stare at the window for a long time.\n\nThe red light doesn't flicker like a candle or a lamp. It pulses. Rhythmically. Like a heartbeat.\n\nThen a silhouette crosses in front of it. Tall. Wrong. It reaches the window and stops — and turns its faceless head down toward you.\n\nYou realize it cannot come through glass. But it is marking you. Watching where you go.`,
     ar: () =>
@@ -1522,6 +1613,8 @@ const nodes = [
         en: () => 'Enter the house immediately',
         ar: () => 'ادخل المنزل فورًا',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, shadowAware: true },
       },
       {
@@ -1529,6 +1622,8 @@ const nodes = [
         en: () => 'Go to the storm cellar instead of the main door',
         ar: () => 'اذهب إلى قبو العاصفة بدلًا من الباب الرئيسي',
         next: 'h_cellar_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, shadowAware: true },
       },
       {
@@ -1536,6 +1631,8 @@ const nodes = [
         en: () => 'Get to the car — search for anything useful',
         ar: () => 'اذهب إلى السيارة — ابحث عن أي شيء مفيد',
         next: 'h_car_search',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1, shadowAware: true },
       },
       {
@@ -1543,6 +1640,8 @@ const nodes = [
         en: () => 'Find another way in — around the back',
         ar: () => 'اجد مدخلًا آخر — من الجانب الخلفي',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2, shadowAware: true },
       },
     ],
@@ -1550,6 +1649,7 @@ const nodes = [
 
   {
     id: 'h_bedroom1',
+    fallbackNext: 'h_red_door_open',
     en: () =>
       `The first bedroom contains a child's bed — small, with rusted iron bars forming the headboard. Something was kept here. Not a child, you realize. The bars face inward. This was a cage.\n\nOn the walls, crayon drawings — chaotic, overlapping. Mostly scribbles. But in the corner, drawn over and over in the same precise lines: a door. With a red frame. Drawn by someone who needed to record it. Or who was obsessed with it.`,
     ar: () =>
@@ -1560,6 +1660,8 @@ const nodes = [
         en: () => 'Find the red door — it\'s clearly important',
         ar: () => 'اجد الباب الأحمر — من الواضح أنه مهم',
         next: 'h_red_door_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -1567,6 +1669,8 @@ const nodes = [
         en: () => 'Break off one of the iron bars — useful weapon',
         ar: () => 'اكسر أحد القضبان الحديدية — سلاح مفيد',
         next: 'h_upper_hall',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { hasIron: true, fear: 1 },
       },
       {
@@ -1574,6 +1678,8 @@ const nodes = [
         en: () => 'Try the other bedroom doors',
         ar: () => 'جرب أبواب غرف النوم الأخرى',
         next: 'h_upper_hall',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -1581,6 +1687,8 @@ const nodes = [
         en: () => 'Go back downstairs — find more answers',
         ar: () => 'عد إلى الأسفل — اجد المزيد من الإجابات',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0 },
       },
     ],
@@ -1758,6 +1866,8 @@ const nodes = [
         en: () => 'Enter from outside via the storm cellar',
         ar: () => 'ادخل من الخارج عبر قبو العاصفة',
         next: 'h_cellar_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsFalseName: true, knowsInvitation: true, knowsRitual: true, fear: 0 },
       },
       {
@@ -1765,6 +1875,8 @@ const nodes = [
         en: () => 'Get iron protection first',
         ar: () => 'احصل على حماية حديدية أولًا',
         next: 'h_aunt_help',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsFalseName: true, knowsInvitation: true, knowsRitual: true, fear: 0 },
       },
       {
@@ -1797,6 +1909,8 @@ const nodes = [
         en: () => 'I need iron before I go down',
         ar: () => 'أحتاج حديدًا قبل النزول',
         next: 'h_aunt_help',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => !v.hasIron,
         lockedEn: 'You already have iron',
         lockedAr: 'لديك حديد بالفعل',
@@ -1916,6 +2030,7 @@ const nodes = [
   // ── ESCAPE PATH ───────────────────────────────────────────────────────────────
   {
     id: 'h_escape_attempt_early',
+    fallbackNext: 'h_banishment',
     en: () =>
       `You get in your car. Keys in. Engine—\n\nThe engine won't start. It clicks. Clicks. Dies.\n\nYou look up. The house stands at the end of the road, dark windows. All dark except one — upper floor, far left. A pale glow. Not red. White.\n\nAnd standing in the road behind your car, blocking the way out, is a shape. Tall. Wrong. Waiting.\n\nYou cannot leave. Not without ending it.`,
     ar: () =>
@@ -1926,6 +2041,8 @@ const nodes = [
         en: () => 'Enter the house — face this',
         ar: () => 'ادخل المنزل — واجه هذا',
         next: 'h_foyer',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 3 },
       },
       {
@@ -1933,6 +2050,8 @@ const nodes = [
         en: () => 'Go around the back — storm cellar',
         ar: () => 'اذهب حول الجانب الخلفي — قبو العاصفة',
         next: 'h_cellar_outside',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -1940,6 +2059,8 @@ const nodes = [
         en: () => 'Walk toward the shape in the road',
         ar: () => 'تقدم نحو الشكل في الطريق',
         next: 'h_shadow_confront',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 4 },
       },
       {
@@ -1947,6 +2068,8 @@ const nodes = [
         en: () => 'Enter and go straight to the study — you need information',
         ar: () => 'ادخل وتوجه مباشرة إلى الدراسة — تحتاج معلومات',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
     ],
@@ -2042,6 +2165,8 @@ const nodes = [
         en: () => 'Refuse. If you\'re a residue, you still have agency. Fight for your freedom.',
         ar: () => 'ارفض. إذا كنت رسوبًا، لا يزال لديك إرادة. قاتل من أجل حريتك.',
         next: 'h_final_briefing',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsSecret: true, knowsInvitation: true, knowsRitual: true, knowsFalseName: true },
       },
       {
@@ -2056,6 +2181,8 @@ const nodes = [
         en: () => 'Run. Even if you\'re not real — run anyway.',
         ar: () => 'اجرِ. حتى لو لم تكن حقيقيًا — اجرِ على أي حال.',
         next: 'h_escape_run',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { knowsSecret: true, fear: 2 },
       },
     ],
@@ -2105,6 +2232,8 @@ const nodes = [
         en: () => 'Open it with the red key',
         ar: () => 'افتحه بالمفتاح الأحمر',
         next: 'h_red_door_open',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasRedKey,
         lockedEn: 'You need the red skeleton key from the desk drawer',
         lockedAr: 'تحتاج المفتاح الهيكلي الأحمر من درج المكتب',
@@ -2114,6 +2243,8 @@ const nodes = [
         en: () => 'Listen at the door first',
         ar: () => 'استمع عند الباب أولًا',
         next: 'h_red_door_listen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2121,6 +2252,8 @@ const nodes = [
         en: () => 'Actually — go to the basement first',
         ar: () => 'في الحقيقة — اذهب إلى القبو أولًا',
         next: 'h_basement_approach',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -2135,6 +2268,7 @@ const nodes = [
 
   {
     id: 'h_red_door_knock',
+    fallbackNext: 'h_scratch_examine',
     en: () =>
       `You knock. Three times.\n\nSilence. Then, very quietly, three knocks back. From inside.`,
     ar: () =>
@@ -2145,6 +2279,8 @@ const nodes = [
         en: () => 'Open with the red key',
         ar: () => 'افتح بالمفتاح الأحمر',
         next: 'h_red_door_open',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasRedKey,
         lockedEn: 'You need the red key',
         lockedAr: 'تحتاج المفتاح الأحمر',
@@ -2154,6 +2290,8 @@ const nodes = [
         en: () => 'Press your ear to the door',
         ar: () => 'ضع أذنك على الباب',
         next: 'h_red_door_listen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2161,6 +2299,8 @@ const nodes = [
         en: () => 'Leave the door and go to the basement',
         ar: () => 'اترك الباب واذهب إلى القبو',
         next: 'h_basement_approach',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
       {
@@ -2168,6 +2308,8 @@ const nodes = [
         en: () => 'Go get the key from the study',
         ar: () => 'اذهب للحصول على المفتاح من الدراسة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: {},
       },
     ],
@@ -2175,6 +2317,7 @@ const nodes = [
 
   {
     id: 'h_scratch_examine',
+    fallbackNext: 'h_photo_examine',
     en: () =>
       `You crouch low and trace the scratch marks with your flashlight.\n\nThey go up and up — not trying to climb the stairs. The marks go INTO the wall. Whatever made them was trying to escape INTO the structure of the house itself.\n\nOr... was trying to escape OUT of something within the structure.\n\nYou notice something in the grooves: traces of dried blood. Human.`,
     ar: () =>
@@ -2185,6 +2328,8 @@ const nodes = [
         en: () => 'Try the left door — study',
         ar: () => 'جرب الباب الأيسر — الدراسة',
         next: 'h_study',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -2192,6 +2337,8 @@ const nodes = [
         en: () => 'Climb the stairs despite the marks',
         ar: () => 'اصعد الدرج رغم الخدوش',
         next: 'h_upper_hall',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -2199,6 +2346,8 @@ const nodes = [
         en: () => 'Go deeper through the hallway',
         ar: () => 'تقدم أعمق عبر الممر',
         next: 'h_kitchen',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
       {
@@ -2206,6 +2355,8 @@ const nodes = [
         en: () => 'Go back outside — come in through the back',
         ar: () => 'عد للخارج — ادخل من الخلف',
         next: 'h_perimeter',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 1 },
       },
     ],
@@ -2223,6 +2374,8 @@ const nodes = [
         en: () => 'Take the red key and find the red door',
         ar: () => 'خذ المفتاح الأحمر واجد الباب الأحمر',
         next: 'h_find_red_door',
+        isBacktrack: true,
+        maxVisits: 1,
         condition: (v) => v.hasRedKey,
         lockedEn: 'You already have the key',
         lockedAr: 'المفتاح لديك بالفعل',
@@ -2232,6 +2385,8 @@ const nodes = [
         en: () => 'Go to the basement',
         ar: () => 'اذهب إلى القبو',
         next: 'h_basement_approach',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -2239,6 +2394,8 @@ const nodes = [
         en: () => 'Go upstairs — face the Shadow directly',
         ar: () => 'اصعد — واجه الظل مباشرة',
         next: 'h_upper_hall',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 2 },
       },
       {
@@ -2246,6 +2403,8 @@ const nodes = [
         en: () => 'Read the journal entries',
         ar: () => 'اقرأ مدخلات اليومية',
         next: 'h_journal_read',
+        isBacktrack: true,
+        maxVisits: 1,
         effects: { fear: 0 },
       },
     ],

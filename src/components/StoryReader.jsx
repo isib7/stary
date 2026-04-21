@@ -60,8 +60,12 @@ function ChoicePanel({ choices, lang, t, getChoiceText, onChoice, typingDone }) 
     <div className={`choice-panel ${typingDone ? 'choice-panel--visible' : ''}`} dir={isRtl ? 'rtl' : 'ltr'}>
       {choices.map((choice) => {
         const label = getChoiceText(choice);
-        const locked = !choice.available;
-        const lockedMsg = lang === 'ar' ? choice.lockedAr : choice.lockedEn;
+        const locked = choice.disabled ?? !choice.available;
+        let lockedMsg = lang === 'ar' ? choice.lockedAr : choice.lockedEn;
+        
+        if (choice.disabledReason === 'backtrack') {
+          lockedMsg = lang === 'ar' ? 'لقد تفقدت هذا بالفعل' : "You've already checked this";
+        }
 
         return (
           <button
