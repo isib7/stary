@@ -5,14 +5,12 @@ const THEME_ICONS = {
   horror: '🕯',
   mystery: '🔍',
   psychological: '🪞',
-  personal: '👁️',
 };
 
 const THEME_BADGES = {
   horror: { en: 'Horror', ar: 'رعب' },
   mystery: { en: 'Mystery', ar: 'غموض' },
   psychological: { en: 'Psychological', ar: 'نفسي' },
-  personal: { en: 'Personal', ar: 'شخصي' },
 };
 
 /**

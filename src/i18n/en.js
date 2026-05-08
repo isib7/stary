@@ -44,10 +44,6 @@ const en = {
       title: 'Mirror Talk',
       description: 'You wake in a psychiatric ward with no memory. Are you the patient — or the doctor?',
     },
-    personal: {
-      title: 'You Gave Us Everything',
-      description: 'A deeply personal story that uses your own answers against you.',
-    },
   },
 };
 
